@@ -1,0 +1,18 @@
+tool	claim	url	http_status_2026_09_24
+kuberay	Dashboard and Jobs API must not be reachable by untrusted callers; token auth opt-in	https://docs.ray.io/en/latest/ray-security/index.html	200
+kuberay	Usage stats on by default when console is non-interactive	https://docs.ray.io/en/latest/cluster/usage-stats.html	200
+qdrant	No auth by default; api-key recommended	https://qdrant.tech/documentation/guides/security/	200
+qdrant	Telemetry on by default and how to disable	https://qdrant.tech/documentation/guides/telemetry/	200
+ollama-otwld	Binding 0.0.0.0 is a user choice; no auth feature	https://docs.ollama.com/faq	200
+weaviate	Anonymous access and API key configuration	https://docs.weaviate.io/deploy/configuration/authentication	200
+weaviate	Telemetry and DISABLE_TELEMETRY	https://docs.weaviate.io/deploy/configuration/telemetry	200
+milvus	authorizationEnabled false in default config	https://github.com/milvus-io/milvus/blob/master/configs/milvus.yaml	200
+open-webui	WEBUI_AUTH and ENABLE_SIGNUP env reference	https://docs.openwebui.com/reference/env-configuration	200
+langfuse	Telemetry on by default and how to disable	https://langfuse.com/self-hosting/security/telemetry	200
+n8n	Diagnostics env vars	https://docs.n8n.io/hosting/configuration/environment-variables/deployment/	200
+localai	API_KEY optional	https://localai.io/basics/getting_started/	200
+mcp-server-kubernetes-flux159	values.yaml warns endpoint is unauthenticated	https://github.com/Flux159/mcp-server-kubernetes/blob/v4.1.7/helm-chart/values.yaml	200
+k8s-mcp-server-containers	Project README (OAuth opt-in)	https://github.com/containers/kubernetes-mcp-server	200
+vllm-production-stack	Project README	https://github.com/vllm-project/production-stack	200
+aibrix	Gateway plugin API key docs	https://github.com/vllm-project/aibrix/blob/v0.7.0/docs/source/features/gateway-plugins.rst	200
+kserve	Project docs	https://kserve.github.io/website/	200

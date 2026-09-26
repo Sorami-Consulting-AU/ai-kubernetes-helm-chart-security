@@ -1,0 +1,1 @@
+localai: pod Pending >10 min. Default PVCs rel-local-ai-models and rel-local-ai-output request ReadWriteMany; kind local-path provisioner supports RWO only. Not started, no probe. (Environment limit, not a chart security fact.)

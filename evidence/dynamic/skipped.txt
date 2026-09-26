@@ -1,0 +1,4 @@
+langfuse: helm install refused: validations.yaml:107 requires ClickHouse operator CRDs + cert-manager before install. Documented prerequisite. Not installed.
+vllm-production-stack: router image lmcache/lmstack-router:latest has no linux/arm64 manifest ("no match for platform in manifest"). Engine needs a model + GPU for real use. Not installed.
+aibrix: README requires `kubectl apply -k config/dependency` (Envoy Gateway + KubeRay CRDs) and manual CRD apply before helm install; default images are :nightly. Multi-component control plane beyond single 8 GB kind node after Milvus result. Not installed.
+nvidia-nim-operator, llm-d: out of the 15 (not rendered in static pass).

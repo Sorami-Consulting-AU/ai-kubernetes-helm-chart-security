@@ -1,0 +1,137 @@
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:36:58Z
+# Open WebUI full probe log. Chart open-webui/open-webui 16.6.0 (app 0.11.4), default values (bundled Ollama and Pipelines subcharts on by default). Cluster <kind-context> (kind v0.33.0, node v1.37.0, arm64). Probe pod probe/curl (curlimages/curl:8.10.1). No credentials sent. Main image pre-pulled inside the kind node with crictl.
+install: helm --kubeconfig <kubeconfig> --kube-context <kind-context> install rel <charts>/repo-open-webui/open-webui -n owui
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:40:11Z
+curl: kubectl --kubeconfig <kubeconfig> --context <kind-context> -n probe exec curl -- curl -sS -i -m 15 -X GET -w \\n__STATUS__%\{http_code\} http://rel-open-webui.owui.svc/health 
+method: GET
+url: http://rel-open-webui.owui.svc/health
+request_body: (none)
+http_status: 200
+response_headers:
+  HTTP/1.1 200 OK
+  date: Fri, 25 Sep 2026 00:40:10 GMT
+  server: uvicorn
+  content-length: 15
+  content-type: application/json
+  x-process-time: 0.000839
+response_body:
+{"status":true}
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:40:11Z
+curl: kubectl --kubeconfig <kubeconfig> --context <kind-context> -n probe exec curl -- curl -sS -i -m 15 -X GET -w \\n__STATUS__%\{http_code\} http://rel-open-webui.owui.svc/api/config 
+method: GET
+url: http://rel-open-webui.owui.svc/api/config
+request_body: (none)
+http_status: 200
+response_headers:
+  HTTP/1.1 200 OK
+  date: Fri, 25 Sep 2026 00:40:11 GMT
+  server: uvicorn
+  content-length: 349
+  content-type: application/json
+  x-process-time: 0.007695
+response_body:
+{"onboarding":true,"status":true,"name":"Open WebUI","version":"0.11.4","default_locale":"","i18n":{},"oauth":{"providers":{},"auto_redirect":false},"features":{"slim":false,"auth":true,"auth_trusted_header":false,"enable_signup_password_confirmation":false,"enable_ldap":false,"enable_signup":true,"enable_login_form":true,"enable_websocket":true}}
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:40:11Z
+curl: kubectl --kubeconfig <kubeconfig> --context <kind-context> -n probe exec curl -- curl -sS -i -m 15 -X GET -w \\n__STATUS__%\{http_code\} http://rel-open-webui.owui.svc/api/models 
+method: GET
+url: http://rel-open-webui.owui.svc/api/models
+request_body: (none)
+http_status: 401
+response_headers:
+  HTTP/1.1 401 Unauthorized
+  date: Fri, 25 Sep 2026 00:40:11 GMT
+  server: uvicorn
+  content-length: 30
+  content-type: application/json
+  x-process-time: 0.001721
+response_body:
+{"detail":"Not authenticated"}
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:40:11Z
+curl: kubectl --kubeconfig <kubeconfig> --context <kind-context> -n probe exec curl -- curl -sS -i -m 15 -X GET -w \\n__STATUS__%\{http_code\} http://rel-open-webui.owui.svc/api/v1/users/ 
+method: GET
+url: http://rel-open-webui.owui.svc/api/v1/users/
+request_body: (none)
+http_status: 401
+response_headers:
+  HTTP/1.1 401 Unauthorized
+  date: Fri, 25 Sep 2026 00:40:11 GMT
+  server: uvicorn
+  content-length: 30
+  content-type: application/json
+  x-process-time: 0.001413
+response_body:
+{"detail":"Not authenticated"}
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:40:11Z
+curl: kubectl --kubeconfig <kubeconfig> --context <kind-context> -n probe exec curl -- curl -sS -i -m 15 -X GET -w \\n__STATUS__%\{http_code\} http://rel-open-webui.owui.svc/api/v1/auths/ 
+method: GET
+url: http://rel-open-webui.owui.svc/api/v1/auths/
+request_body: (none)
+http_status: 401
+response_headers:
+  HTTP/1.1 401 Unauthorized
+  date: Fri, 25 Sep 2026 00:40:11 GMT
+  server: uvicorn
+  content-length: 30
+  content-type: application/json
+  x-process-time: 0.001465
+response_body:
+{"detail":"Not authenticated"}
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:40:11Z
+curl: kubectl --kubeconfig <kubeconfig> --context <kind-context> -n probe exec curl -- curl -sS -i -m 15 -X GET -w \\n__STATUS__%\{http_code\} http://rel-open-webui.owui.svc/api/v1/auths/admin/config 
+method: GET
+url: http://rel-open-webui.owui.svc/api/v1/auths/admin/config
+request_body: (none)
+http_status: 401
+response_headers:
+  HTTP/1.1 401 Unauthorized
+  date: Fri, 25 Sep 2026 00:40:11 GMT
+  server: uvicorn
+  content-length: 30
+  content-type: application/json
+  x-process-time: 0.000510
+response_body:
+{"detail":"Not authenticated"}
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:40:11Z
+runtime user (open-webui container): uid=0(root) gid=0(root) groups=0(root)
+env WEBUI_AUTH / ENABLE_SIGNUP / DEFAULT_USER_ROLE in pod spec: (none set by chart; app defaults apply)
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:40:39Z
+first-user-admin evidence (source read inside our own running pod, no account created):
+cmd: kubectl --kubeconfig <kubeconfig> --context <kind-context> -n owui exec rel-open-webui-0 -c open-webui -- sed -n 858,880p /app/backend/open_webui/routers/auths.py
+    # Insert with default role first to avoid TOCTOU race on first signup.
+    # If has_users() is checked before insert, concurrent requests during
+    # first-user registration can all see an empty table and each get admin.
+    hashed = await get_password_hash(password)
+
+    user = await Auths.insert_new_auth(
+        email=email.lower(),
+        password=hashed,
+        name=name,
+        profile_image_url=profile_image_url,
+        role=await Config.get('ui.default_user_role'),
+        db=db,
+    )
+    if not user:
+        raise HTTPException(500, detail=ERROR_MESSAGES.CREATE_USER_ERROR)
+
+    # Atomically check if this is the only user *after* the insert.
+    # Only the single user present at this point should become admin.
+    if await Users.get_num_users(db=db) == 1:
+        await Users.update_user_role_by_id(user.id, 'admin', db=db)
+        user = await Users.get_user_by_id(user.id, db=db)
+        await Config.upsert({'ui.enable_signup': False})
+cmd: ... sed -n 2250,2252p /app/backend/open_webui/main.py
+    onboarding = False
+    if user is None:
+        onboarding = not await Users.has_users()
+reading: /api/config returns onboarding:true while the user table is empty. The first account created is set to role admin, and ui.enable_signup is then set to False. Later sign-ups are closed by default after the first user.
+docs: https://docs.openwebui.com/reference/env-configuration (WEBUI_AUTH, ENABLE_SIGNUP, DEFAULT_USER_ROLE)
+bundled subcharts: rel-ollama, rel-pipelines and rel-open-webui-redis were ContainerCreating 10s after install. Not probed in this rerun (out of scope).

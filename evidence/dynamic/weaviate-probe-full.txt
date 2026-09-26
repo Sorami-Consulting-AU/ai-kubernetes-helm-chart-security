@@ -1,0 +1,154 @@
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:02:40Z
+# Weaviate full probe log. Chart weaviate/weaviate 17.8.3 (app 1.38.2), default values except --set service.type=ClusterIP --set grpcService.type=ClusterIP (same as original pass; kind gives LoadBalancer no IP). Cluster <kind-context>. Probe pod probe/curl (curlimages/curl:8.10.1). No credentials sent.
+install: helm --kubeconfig <kubeconfig> --kube-context <kind-context> install rel <charts>/repo-weaviate/weaviate -n weaviate --set service.type=ClusterIP --set grpcService.type=ClusterIP --wait --timeout 10m
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:03:39Z
+note: first install attempt hit an image pull network error (short read / DNS). Image pulled inside the kind node with crictl, release reinstalled with the same command. Pod Ready at 00:03:39Z.
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:03:39Z
+curl: kubectl --kubeconfig <kubeconfig> --context <kind-context> -n probe exec curl -- curl -sS -i -m 15 -X GET -w \\n__STATUS__%\{http_code\} http://weaviate.weaviate.svc/v1/meta 
+method: GET
+url: http://weaviate.weaviate.svc/v1/meta
+request_body: (none)
+http_status: 200
+response_headers:
+  HTTP/1.1 200 OK
+  Access-Control-Allow-Headers: Content-Type, Authorization, Batch, X-Openai-Api-Key, X-Openai-Organization, X-Openai-Baseurl, X-Anyscale-Baseurl, X-Anyscale-Api-Key, X-Cohere-Api-Key, X-Cohere-Baseurl, X-Huggingface-Api-Key, X-Azure-Api-Key, X-Azure-Deployment-Id, X-Azure-Resource-Name, X-Azure-Concurrency, X-Azure-Block-Size, X-Google-Api-Key, X-Google-Vertex-Api-Key, X-Google-Studio-Api-Key, X-Goog-Api-Key, X-Goog-Vertex-Api-Key, X-Goog-Studio-Api-Key, X-Palm-Api-Key, X-Jinaai-Api-Key, X-Aws-Access-Key, X-Aws-Secret-Key, X-Voyageai-Baseurl, X-Voyageai-Api-Key, X-Mistral-Baseurl, X-Mistral-Api-Key, X-Anthropic-Baseurl, X-Anthropic-Api-Key, X-Databricks-Endpoint, X-Databricks-Token, X-Databricks-User-Agent, X-Friendli-Token, X-Friendli-Baseurl, X-Weaviate-Api-Key, X-Weaviate-Cluster-Url, X-Nvidia-Api-Key, X-Nvidia-Baseurl, X-ContextualAI-Baseurl, X-ContextualAI-Api-Key, X-Digitalocean-Baseurl, X-Digitalocean-Api-Key, X-Deepseek-Baseurl, X-Deepseek-Api-Key
+  Access-Control-Allow-Methods: *
+  Access-Control-Allow-Origin: *
+  Content-Type: application/json
+  Vary: Origin
+  Date: Fri, 25 Sep 2026 00:03:39 GMT
+  Transfer-Encoding: chunked
+response_body (trimmed: body was 5685 bytes, first 2048 shown):
+{"grpcMaxMessageSize":104858000,"hostname":"http://[::]:8080","modules":{"generative-anthropic":{"documentationHref":"https://docs.anthropic.com/en/api/getting-started","name":"Generative Search - Anthropic"},"generative-anyscale":{"documentationHref":"https://docs.anyscale.com/endpoints/overview","name":"Generative Search - Anyscale"},"generative-aws":{"documentationHref":"https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html","name":"Generative Search - AWS"},"generative-cohere":{"documentationHref":"https://docs.cohere.com/reference/chat","name":"Generative Search - Cohere"},"generative-contextualai":{"documentationHref":"https://docs.contextual.ai/api-reference/generate/generate","name":"Generative Search - Contextual AI"},"generative-databricks":{"documentationHref":"https://docs.databricks.com/en/machine-learning/foundation-models/api-reference.html#completion-task","name":"Generative Search - Databricks"},"generative-deepseek":{"documentationHref":"https://api-docs.deepseek.com/","name":"Generative Search - DeepSeek"},"generative-friendliai":{"documentationHref":"https://docs.friendli.ai/openapi/create-chat-completions","name":"Generative Search - FriendliAI"},"generative-google":{"documentationHref":"https://cloud.google.com/vertex-ai/docs/generative-ai/chat/test-chat-prompts","name":"Generative Search - Google"},"generative-mistral":{"documentationHref":"https://docs.mistral.ai/api/","name":"Generative Search - Mistral"},"generative-nvidia":{"documentationHref":"https://docs.api.nvidia.com/nim/reference/llm-apis","name":"Generative Search - NVIDIA"},"generative-octoai":{"documentationHref":"https://octo.ai/docs/text-gen-solution/getting-started","name":"Generative Search - OctoAI (deprecated)"},"generative-openai":{"documentationHref":"https://platform.openai.com/docs/api-reference/completions","name":"Generative Search - OpenAI"},"generative-xai":{"documentationHref":"https://docs.x.ai/docs/overview","name":"Generative Search - xAI"},"multi2multivec-jinaai":{"documentationHref":"https://j
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:03:40Z
+curl: kubectl --kubeconfig <kubeconfig> --context <kind-context> -n probe exec curl -- curl -sS -i -m 15 -X GET -w \\n__STATUS__%\{http_code\} http://weaviate.weaviate.svc/v1/schema 
+method: GET
+url: http://weaviate.weaviate.svc/v1/schema
+request_body: (none)
+http_status: 200
+response_headers:
+  HTTP/1.1 200 OK
+  Access-Control-Allow-Headers: Content-Type, Authorization, Batch, X-Openai-Api-Key, X-Openai-Organization, X-Openai-Baseurl, X-Anyscale-Baseurl, X-Anyscale-Api-Key, X-Cohere-Api-Key, X-Cohere-Baseurl, X-Huggingface-Api-Key, X-Azure-Api-Key, X-Azure-Deployment-Id, X-Azure-Resource-Name, X-Azure-Concurrency, X-Azure-Block-Size, X-Google-Api-Key, X-Google-Vertex-Api-Key, X-Google-Studio-Api-Key, X-Goog-Api-Key, X-Goog-Vertex-Api-Key, X-Goog-Studio-Api-Key, X-Palm-Api-Key, X-Jinaai-Api-Key, X-Aws-Access-Key, X-Aws-Secret-Key, X-Voyageai-Baseurl, X-Voyageai-Api-Key, X-Mistral-Baseurl, X-Mistral-Api-Key, X-Anthropic-Baseurl, X-Anthropic-Api-Key, X-Databricks-Endpoint, X-Databricks-Token, X-Databricks-User-Agent, X-Friendli-Token, X-Friendli-Baseurl, X-Weaviate-Api-Key, X-Weaviate-Cluster-Url, X-Nvidia-Api-Key, X-Nvidia-Baseurl, X-ContextualAI-Baseurl, X-ContextualAI-Api-Key, X-Digitalocean-Baseurl, X-Digitalocean-Api-Key, X-Deepseek-Baseurl, X-Deepseek-Api-Key
+  Access-Control-Allow-Methods: *
+  Access-Control-Allow-Origin: *
+  Content-Type: application/json
+  Vary: Origin
+  Date: Fri, 25 Sep 2026 00:03:40 GMT
+  Content-Length: 15
+response_body:
+{"classes":[]}
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:03:40Z
+curl: kubectl --kubeconfig <kubeconfig> --context <kind-context> -n probe exec curl -- curl -sS -i -m 15 -X GET -w \\n__STATUS__%\{http_code\} http://weaviate.weaviate.svc/v1/nodes 
+method: GET
+url: http://weaviate.weaviate.svc/v1/nodes
+request_body: (none)
+http_status: 200
+response_headers:
+  HTTP/1.1 200 OK
+  Access-Control-Allow-Headers: Content-Type, Authorization, Batch, X-Openai-Api-Key, X-Openai-Organization, X-Openai-Baseurl, X-Anyscale-Baseurl, X-Anyscale-Api-Key, X-Cohere-Api-Key, X-Cohere-Baseurl, X-Huggingface-Api-Key, X-Azure-Api-Key, X-Azure-Deployment-Id, X-Azure-Resource-Name, X-Azure-Concurrency, X-Azure-Block-Size, X-Google-Api-Key, X-Google-Vertex-Api-Key, X-Google-Studio-Api-Key, X-Goog-Api-Key, X-Goog-Vertex-Api-Key, X-Goog-Studio-Api-Key, X-Palm-Api-Key, X-Jinaai-Api-Key, X-Aws-Access-Key, X-Aws-Secret-Key, X-Voyageai-Baseurl, X-Voyageai-Api-Key, X-Mistral-Baseurl, X-Mistral-Api-Key, X-Anthropic-Baseurl, X-Anthropic-Api-Key, X-Databricks-Endpoint, X-Databricks-Token, X-Databricks-User-Agent, X-Friendli-Token, X-Friendli-Baseurl, X-Weaviate-Api-Key, X-Weaviate-Cluster-Url, X-Nvidia-Api-Key, X-Nvidia-Baseurl, X-ContextualAI-Baseurl, X-ContextualAI-Api-Key, X-Digitalocean-Baseurl, X-Digitalocean-Api-Key, X-Deepseek-Baseurl, X-Deepseek-Api-Key
+  Access-Control-Allow-Methods: *
+  Access-Control-Allow-Origin: *
+  Content-Type: application/json
+  Vary: Origin
+  Date: Fri, 25 Sep 2026 00:03:40 GMT
+  Content-Length: 185
+response_body:
+{"nodes":[{"batchStats":{"queueLength":0,"ratePerSecond":0},"gitHash":"5bf9fbd","name":"weaviate-0","operationalMode":"ReadWrite","shards":null,"status":"HEALTHY","version":"1.38.2"}]}
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:03:40Z
+curl: kubectl --kubeconfig <kubeconfig> --context <kind-context> -n probe exec curl -- curl -sS -i -m 15 -X POST -w \\n__STATUS__%\{http_code\} -H Content-Type:\ application/json --data \{\"class\":\"SbdProbe\"\,\"vectorizer\":\"none\"\,\"properties\":\[\]\} http://weaviate.weaviate.svc/v1/schema 
+method: POST
+url: http://weaviate.weaviate.svc/v1/schema
+request_body: {"class":"SbdProbe","vectorizer":"none","properties":[]}
+http_status: 200
+response_headers:
+  HTTP/1.1 200 OK
+  Access-Control-Allow-Headers: Content-Type, Authorization, Batch, X-Openai-Api-Key, X-Openai-Organization, X-Openai-Baseurl, X-Anyscale-Baseurl, X-Anyscale-Api-Key, X-Cohere-Api-Key, X-Cohere-Baseurl, X-Huggingface-Api-Key, X-Azure-Api-Key, X-Azure-Deployment-Id, X-Azure-Resource-Name, X-Azure-Concurrency, X-Azure-Block-Size, X-Google-Api-Key, X-Google-Vertex-Api-Key, X-Google-Studio-Api-Key, X-Goog-Api-Key, X-Goog-Vertex-Api-Key, X-Goog-Studio-Api-Key, X-Palm-Api-Key, X-Jinaai-Api-Key, X-Aws-Access-Key, X-Aws-Secret-Key, X-Voyageai-Baseurl, X-Voyageai-Api-Key, X-Mistral-Baseurl, X-Mistral-Api-Key, X-Anthropic-Baseurl, X-Anthropic-Api-Key, X-Databricks-Endpoint, X-Databricks-Token, X-Databricks-User-Agent, X-Friendli-Token, X-Friendli-Baseurl, X-Weaviate-Api-Key, X-Weaviate-Cluster-Url, X-Nvidia-Api-Key, X-Nvidia-Baseurl, X-ContextualAI-Baseurl, X-ContextualAI-Api-Key, X-Digitalocean-Baseurl, X-Digitalocean-Api-Key, X-Deepseek-Baseurl, X-Deepseek-Api-Key
+  Access-Control-Allow-Methods: *
+  Access-Control-Allow-Origin: *
+  Content-Type: application/json
+  Vary: Origin
+  Date: Fri, 25 Sep 2026 00:03:40 GMT
+  Content-Length: 1377
+response_body:
+{"class":"SbdProbe","invertedIndexConfig":{"bm25":{"b":0.75,"k1":1.2},"cleanupIntervalSeconds":60,"stopwords":{"additions":null,"preset":"en","removals":null},"usingBlockMaxWAND":true},"multiTenancyConfig":{"autoTenantActivation":false,"autoTenantCreation":false,"enabled":false},"properties":[],"shardingConfig":{"virtualPerPhysical":128,"desiredCount":1,"actualCount":1,"desiredVirtualCount":128,"actualVirtualCount":128,"key":"_id","strategy":"hash","function":"murmur3"},"vectorIndexConfig":{"skip":false,"cleanupIntervalSeconds":300,"maxConnections":32,"efConstruction":128,"ef":-1,"dynamicEfMin":100,"dynamicEfMax":500,"dynamicEfFactor":8,"vectorCacheMaxObjects":1000000000000,"flatSearchCutoff":40000,"distance":"cosine","pq":{"enabled":false,"bitCompression":false,"segments":0,"centroids":256,"trainingLimit":100000,"encoder":{"type":"kmeans","distribution":"log-normal"}},"bq":{"enabled":false},"sq":{"enabled":false,"trainingLimit":100000,"rescoreLimit":20},"rq":{"enabled":false,"bits":8,"rescoreLimit":20},"filterStrategy":"acorn","multivector":{"enabled":false,"muvera":{"enabled":false,"ksim":4,"dprojections":16,"repetitions":10},"aggregation":"maxSim"},"skipDefaultQuantization":false,"trackDefaultQuantization":false},"vectorIndexType":"hnsw","vectorizer":"none","replicationConfig":{"deletionStrategy":"TimeBasedResolution","factor":1,"asyncEnabled":false}}
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:03:40Z
+curl: kubectl --kubeconfig <kubeconfig> --context <kind-context> -n probe exec curl -- curl -sS -i -m 15 -X GET -w \\n__STATUS__%\{http_code\} http://weaviate.weaviate.svc/v1/schema 
+method: GET
+url: http://weaviate.weaviate.svc/v1/schema
+request_body: (none)
+http_status: 200
+response_headers:
+  HTTP/1.1 200 OK
+  Access-Control-Allow-Headers: Content-Type, Authorization, Batch, X-Openai-Api-Key, X-Openai-Organization, X-Openai-Baseurl, X-Anyscale-Baseurl, X-Anyscale-Api-Key, X-Cohere-Api-Key, X-Cohere-Baseurl, X-Huggingface-Api-Key, X-Azure-Api-Key, X-Azure-Deployment-Id, X-Azure-Resource-Name, X-Azure-Concurrency, X-Azure-Block-Size, X-Google-Api-Key, X-Google-Vertex-Api-Key, X-Google-Studio-Api-Key, X-Goog-Api-Key, X-Goog-Vertex-Api-Key, X-Goog-Studio-Api-Key, X-Palm-Api-Key, X-Jinaai-Api-Key, X-Aws-Access-Key, X-Aws-Secret-Key, X-Voyageai-Baseurl, X-Voyageai-Api-Key, X-Mistral-Baseurl, X-Mistral-Api-Key, X-Anthropic-Baseurl, X-Anthropic-Api-Key, X-Databricks-Endpoint, X-Databricks-Token, X-Databricks-User-Agent, X-Friendli-Token, X-Friendli-Baseurl, X-Weaviate-Api-Key, X-Weaviate-Cluster-Url, X-Nvidia-Api-Key, X-Nvidia-Baseurl, X-ContextualAI-Baseurl, X-ContextualAI-Api-Key, X-Digitalocean-Baseurl, X-Digitalocean-Api-Key, X-Deepseek-Baseurl, X-Deepseek-Api-Key
+  Access-Control-Allow-Methods: *
+  Access-Control-Allow-Origin: *
+  Content-Type: application/json
+  Vary: Origin
+  Date: Fri, 25 Sep 2026 00:03:40 GMT
+  Content-Length: 1391
+response_body:
+{"classes":[{"class":"SbdProbe","invertedIndexConfig":{"bm25":{"b":0.75,"k1":1.2},"cleanupIntervalSeconds":60,"stopwords":{"additions":null,"preset":"en","removals":null},"usingBlockMaxWAND":true},"multiTenancyConfig":{"autoTenantActivation":false,"autoTenantCreation":false,"enabled":false},"properties":[],"shardingConfig":{"actualCount":1,"actualVirtualCount":128,"desiredCount":1,"desiredVirtualCount":128,"function":"murmur3","key":"_id","strategy":"hash","virtualPerPhysical":128},"vectorIndexConfig":{"bq":{"enabled":false},"cleanupIntervalSeconds":300,"distance":"cosine","dynamicEfFactor":8,"dynamicEfMax":500,"dynamicEfMin":100,"ef":-1,"efConstruction":128,"filterStrategy":"acorn","flatSearchCutoff":40000,"maxConnections":32,"multivector":{"aggregation":"maxSim","enabled":false,"muvera":{"dprojections":16,"enabled":false,"ksim":4,"repetitions":10}},"pq":{"bitCompression":false,"centroids":256,"enabled":false,"encoder":{"distribution":"log-normal","type":"kmeans"},"segments":0,"trainingLimit":100000},"rq":{"bits":8,"enabled":false,"rescoreLimit":20},"skip":false,"skipDefaultQuantization":false,"sq":{"enabled":false,"rescoreLimit":20,"trainingLimit":100000},"trackDefaultQuantization":false,"vectorCacheMaxObjects":1000000000000},"vectorIndexType":"hnsw","vectorizer":"none","replicationConfig":{"deletionStrategy":"TimeBasedResolution","factor":1,"asyncEnabled":false}}]}
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:03:40Z
+curl: kubectl --kubeconfig <kubeconfig> --context <kind-context> -n probe exec curl -- curl -sS -i -m 15 -X GET -w \\n__STATUS__%\{http_code\} http://weaviate.weaviate.svc/v1/schema/SbdProbe 
+method: GET
+url: http://weaviate.weaviate.svc/v1/schema/SbdProbe
+request_body: (none)
+http_status: 200
+response_headers:
+  HTTP/1.1 200 OK
+  Access-Control-Allow-Headers: Content-Type, Authorization, Batch, X-Openai-Api-Key, X-Openai-Organization, X-Openai-Baseurl, X-Anyscale-Baseurl, X-Anyscale-Api-Key, X-Cohere-Api-Key, X-Cohere-Baseurl, X-Huggingface-Api-Key, X-Azure-Api-Key, X-Azure-Deployment-Id, X-Azure-Resource-Name, X-Azure-Concurrency, X-Azure-Block-Size, X-Google-Api-Key, X-Google-Vertex-Api-Key, X-Google-Studio-Api-Key, X-Goog-Api-Key, X-Goog-Vertex-Api-Key, X-Goog-Studio-Api-Key, X-Palm-Api-Key, X-Jinaai-Api-Key, X-Aws-Access-Key, X-Aws-Secret-Key, X-Voyageai-Baseurl, X-Voyageai-Api-Key, X-Mistral-Baseurl, X-Mistral-Api-Key, X-Anthropic-Baseurl, X-Anthropic-Api-Key, X-Databricks-Endpoint, X-Databricks-Token, X-Databricks-User-Agent, X-Friendli-Token, X-Friendli-Baseurl, X-Weaviate-Api-Key, X-Weaviate-Cluster-Url, X-Nvidia-Api-Key, X-Nvidia-Baseurl, X-ContextualAI-Baseurl, X-ContextualAI-Api-Key, X-Digitalocean-Baseurl, X-Digitalocean-Api-Key, X-Deepseek-Baseurl, X-Deepseek-Api-Key
+  Access-Control-Allow-Methods: *
+  Access-Control-Allow-Origin: *
+  Content-Type: application/json
+  Vary: Origin
+  Date: Fri, 25 Sep 2026 00:03:40 GMT
+  Content-Length: 1377
+response_body:
+{"class":"SbdProbe","invertedIndexConfig":{"bm25":{"b":0.75,"k1":1.2},"cleanupIntervalSeconds":60,"stopwords":{"additions":null,"preset":"en","removals":null},"usingBlockMaxWAND":true},"multiTenancyConfig":{"autoTenantActivation":false,"autoTenantCreation":false,"enabled":false},"properties":[],"shardingConfig":{"actualCount":1,"actualVirtualCount":128,"desiredCount":1,"desiredVirtualCount":128,"function":"murmur3","key":"_id","strategy":"hash","virtualPerPhysical":128},"vectorIndexConfig":{"bq":{"enabled":false},"cleanupIntervalSeconds":300,"distance":"cosine","dynamicEfFactor":8,"dynamicEfMax":500,"dynamicEfMin":100,"ef":-1,"efConstruction":128,"filterStrategy":"acorn","flatSearchCutoff":40000,"maxConnections":32,"multivector":{"aggregation":"maxSim","enabled":false,"muvera":{"dprojections":16,"enabled":false,"ksim":4,"repetitions":10}},"pq":{"bitCompression":false,"centroids":256,"enabled":false,"encoder":{"distribution":"log-normal","type":"kmeans"},"segments":0,"trainingLimit":100000},"rq":{"bits":8,"enabled":false,"rescoreLimit":20},"skip":false,"skipDefaultQuantization":false,"sq":{"enabled":false,"rescoreLimit":20,"trainingLimit":100000},"trackDefaultQuantization":false,"vectorCacheMaxObjects":1000000000000},"vectorIndexType":"hnsw","vectorizer":"none","replicationConfig":{"deletionStrategy":"TimeBasedResolution","factor":1,"asyncEnabled":false}}
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:03:40Z
+curl: kubectl --kubeconfig <kubeconfig> --context <kind-context> -n probe exec curl -- curl -sS -i -m 15 -X DELETE -w \\n__STATUS__%\{http_code\} http://weaviate.weaviate.svc/v1/schema/SbdProbe 
+method: DELETE
+url: http://weaviate.weaviate.svc/v1/schema/SbdProbe
+request_body: (none)
+http_status: 200
+response_headers:
+  HTTP/1.1 200 OK
+  Access-Control-Allow-Headers: Content-Type, Authorization, Batch, X-Openai-Api-Key, X-Openai-Organization, X-Openai-Baseurl, X-Anyscale-Baseurl, X-Anyscale-Api-Key, X-Cohere-Api-Key, X-Cohere-Baseurl, X-Huggingface-Api-Key, X-Azure-Api-Key, X-Azure-Deployment-Id, X-Azure-Resource-Name, X-Azure-Concurrency, X-Azure-Block-Size, X-Google-Api-Key, X-Google-Vertex-Api-Key, X-Google-Studio-Api-Key, X-Goog-Api-Key, X-Goog-Vertex-Api-Key, X-Goog-Studio-Api-Key, X-Palm-Api-Key, X-Jinaai-Api-Key, X-Aws-Access-Key, X-Aws-Secret-Key, X-Voyageai-Baseurl, X-Voyageai-Api-Key, X-Mistral-Baseurl, X-Mistral-Api-Key, X-Anthropic-Baseurl, X-Anthropic-Api-Key, X-Databricks-Endpoint, X-Databricks-Token, X-Databricks-User-Agent, X-Friendli-Token, X-Friendli-Baseurl, X-Weaviate-Api-Key, X-Weaviate-Cluster-Url, X-Nvidia-Api-Key, X-Nvidia-Baseurl, X-ContextualAI-Baseurl, X-ContextualAI-Api-Key, X-Digitalocean-Baseurl, X-Digitalocean-Api-Key, X-Deepseek-Baseurl, X-Deepseek-Api-Key
+  Access-Control-Allow-Methods: *
+  Access-Control-Allow-Origin: *
+  Vary: Origin
+  Date: Fri, 25 Sep 2026 00:03:40 GMT
+  Content-Length: 0
+response_body:
+
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:03:40Z
+curl: kubectl --kubeconfig <kubeconfig> --context <kind-context> -n probe exec curl -- curl -sS -i -m 15 -X GET -w \\n__STATUS__%\{http_code\} http://weaviate.weaviate.svc/v1/schema 
+method: GET
+url: http://weaviate.weaviate.svc/v1/schema
+request_body: (none)
+http_status: 200
+response_headers:
+  HTTP/1.1 200 OK
+  Access-Control-Allow-Headers: Content-Type, Authorization, Batch, X-Openai-Api-Key, X-Openai-Organization, X-Openai-Baseurl, X-Anyscale-Baseurl, X-Anyscale-Api-Key, X-Cohere-Api-Key, X-Cohere-Baseurl, X-Huggingface-Api-Key, X-Azure-Api-Key, X-Azure-Deployment-Id, X-Azure-Resource-Name, X-Azure-Concurrency, X-Azure-Block-Size, X-Google-Api-Key, X-Google-Vertex-Api-Key, X-Google-Studio-Api-Key, X-Goog-Api-Key, X-Goog-Vertex-Api-Key, X-Goog-Studio-Api-Key, X-Palm-Api-Key, X-Jinaai-Api-Key, X-Aws-Access-Key, X-Aws-Secret-Key, X-Voyageai-Baseurl, X-Voyageai-Api-Key, X-Mistral-Baseurl, X-Mistral-Api-Key, X-Anthropic-Baseurl, X-Anthropic-Api-Key, X-Databricks-Endpoint, X-Databricks-Token, X-Databricks-User-Agent, X-Friendli-Token, X-Friendli-Baseurl, X-Weaviate-Api-Key, X-Weaviate-Cluster-Url, X-Nvidia-Api-Key, X-Nvidia-Baseurl, X-ContextualAI-Baseurl, X-ContextualAI-Api-Key, X-Digitalocean-Baseurl, X-Digitalocean-Api-Key, X-Deepseek-Baseurl, X-Deepseek-Api-Key
+  Access-Control-Allow-Methods: *
+  Access-Control-Allow-Origin: *
+  Content-Type: application/json
+  Vary: Origin
+  Date: Fri, 25 Sep 2026 00:03:40 GMT
+  Content-Length: 15
+response_body:
+{"classes":[]}
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:03:40Z
+runtime user: Defaulted container "weaviate" out of: weaviate, configure-sysctl (init)
+uid=0(root) gid=0(root) groups=0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10(wheel),11(floppy),20(dialout),26(tape),27(video)

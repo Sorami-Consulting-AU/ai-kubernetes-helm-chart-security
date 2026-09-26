@@ -1,0 +1,11 @@
+"I'm alive!"
+/v1/models             401 {"error":{"message":"Authentication Error, No api key passed in.","type":"auth_error","param":"None","code":"401"}}
+/models                401 {"error":{"message":"Authentication Error, No api key passed in.","type":"auth_error","param":"None","code":"401"}}
+/model/info            401 {"error":{"message":"Authentication Error, No api key passed in.","type":"auth_error","param":"None","code":"401"}}
+/key/list              401 {"error":{"message":"Authentication Error, No api key passed in.","type":"auth_error","param":"None","code":"401"}}
+/user/list             401 {"error":{"message":"Authentication Error, No api key passed in.","type":"auth_error","param":"None","code":"401"}}
+/global/spend          401 {"error":{"message":"Authentication Error, No api key passed in.","type":"auth_error","param":"None","code":"401"}}
+/config/yaml           422 {"detail":[{"type":"missing","loc":["body"],"msg":"Field required","input":null}]}
+/ui/                   200 <!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" href="/lite
+/openapi.json          200 {"openapi":"3.1.0","info":{"title":"LiteLLM API","description":"Proxy Server to call 100+ LLMs in the OpenAI format. [**Customize Swagger Docs**](https://docs.l
+/metrics               401 "Unauthorized access to metrics endpoint: Authentication Error, Malformed API Key passed in. Ensure Key has `Bearer ` prefix. To allow unauthenticated access, s

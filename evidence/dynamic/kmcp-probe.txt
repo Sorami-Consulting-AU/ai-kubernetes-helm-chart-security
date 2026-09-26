@@ -1,0 +1,15 @@
+E0924 11:51:23.524317   58755 websocket.go:296] Unknown stream id 1, discarding message
+HTTP/1.1 200 OK
+event: message
+data: {"jsonrpc":"2.0","id":1,"result":{"capabilities":{"logging":{},"prompts":{"listChanged":true},"resources":{"listChanged":true},"tools":{"listChanged":true}},"protocolVersion":"2025-03-26","serverInfo":{"name":"kubernetes-mcp-server","title":"kubernetes-mcp-server","version":"","
+SID=UYBVRWVNLGG4PJ2QSAVFC4LJHN
+TOOLS:
+"name":"configuration_view" "name":"events_list" "name":"namespaces_list" "name":"nodes_log" "name":"nodes_stats_summary" "name":"nodes_top" "name":"pods_delete" "name":"pods_exec" "name":"pods_get" "name":"pods_list" "name":"pods_list_in_namespace" "name":"pods_log" "name":"pods_run" "name":"pods_top" "name":"projects_list" "name":"resources_create_or_update" "name":"resources_delete" "name":"resources_get" "name":"resources_list" "name":"resources_scale" 
+CALL:
+event: message
+data: {"jsonrpc":"2.0","id":3,"result":{"content":[{"type":"text","text":"failed to list pods in all namespaces: pods is forbidden: User \"system:serviceaccount:kmcp:rel-kubernetes-mcp-server\" cannot list resource \"pods\" in API group \"\" in the namespace \"default\""}],"isError":true}}
+
+
+event: message
+data: {"jsonrpc":"2.0","id":4,"result":{"content":[{"type":"text","text":"failed to list resources: secrets is forbidden: User \"system:serviceaccount:kmcp:rel-kubernetes-mcp-server\" cannot list resource \"secrets\" in API group \"\" in the namespace \"default\""}],"isError":true}}
+

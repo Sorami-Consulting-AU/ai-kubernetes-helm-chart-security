@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+event: message
+data: {"result":{"protocolVersion":"2025-03-26","capabilities":{"prompts":{},"resources":{},"tools":{}},"serverInfo":{"name":"kubernetes","version":"4.1.7"}},"jsonrpc":"2.0","id":1}
+
+
+SID=
+TOOLS:
+"name":"cleanup" "name":"exec_in_pod" "name":"explain_resource" "name":"install_helm_chart" "name":"kubectl_apply" "name":"kubectl_context" "name":"kubectl_create" "name":"kubectl_delete" "name":"kubectl_describe" "name":"kubectl_generic" "name":"kubectl_get" "name":"kubectl_logs" "name":"kubectl_patch" "name":"kubectl_reconnect" "name":"kubectl_rollout" "name":"kubectl_scale" "name":"list_api_resources" "name":"node_management" "name":"ping" "name":"port_forward" "name":"stop_port_forward" "name":"uninstall_helm_chart" "name":"upgrade_helm_chart" 
+CALL:
+event: message
+data: {"result":{"content":[{"type":"text","text":"secret/sh.helm.release.v1.rel.v1\nsecret/bootstrap-token-abcdef\n"}]},"jsonrpc":"2.0","id":3}
+

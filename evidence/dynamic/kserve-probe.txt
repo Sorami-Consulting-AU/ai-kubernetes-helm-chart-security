@@ -1,0 +1,1 @@
+kserve: install failed on defaults: needs cert-manager (Issuer cert-manager.io/v1) and kserve-crd (ClusterStorageContainer) first. Documented prerequisite. Not installed.

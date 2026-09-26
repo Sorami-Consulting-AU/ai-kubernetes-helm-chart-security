@@ -1,0 +1,7 @@
+# ollama (pod started ~10m20s after install; image pull 9m49s)
+{"version":"0.34.2"} HTTP 200
+{"models":[]} HTTP 200
+{"models":[]} HTTP 200
+{"error":"model 'sbd-probe-nonexistent:latest' not found"} HTTP 404
+{"error":"model 'sbd-probe-nonexistent' not found"} HTTP 404
+uid: uid=0(root) gid=0(root) groups=0(root)

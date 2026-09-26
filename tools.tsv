@@ -1,0 +1,16 @@
+tool	render	chart	chart_version	app_version	source	github_repo	github_stars	override_needed_to_render	values_file
+vllm-production-stack	vllm-stack	vllm/vllm-stack (https://vllm-project.github.io/production-stack)	0.1.12	router latest	helm repo	vllm-project/vllm	92548	none	charts/repo-vllm-stack/vllm-stack/values.yaml
+kserve	kserve	oci://ghcr.io/kserve/charts/kserve-resources	v0.20.0	v0.20.0	OCI	kserve/kserve	5992	none	charts/oci-kserve-resources/kserve-resources/values.yaml
+kuberay	kuberay-operator+ray-cluster	kuberay/kuberay-operator + kuberay/ray-cluster	1.7.1	ray 2.52.0	helm repo	ray-project/ray	43910	none	charts/repo-ray-cluster/ray-cluster/values.yaml
+aibrix	aibrix	vllm-project/aibrix dist/chart (git tag v0.7.0, c5465890)	0.7.0	0.7.0 (default values use nightly tags; docs add -f stable.yaml)	git	vllm-project/aibrix	5107	none	aibrix/dist/chart/values.yaml
+ollama-otwld	ollama	otwld/ollama (https://helm.otwld.com/)	1.83.0	0.34.2	helm repo	ollama/ollama	181534	none	charts/repo-ollama/ollama/values.yaml
+open-webui	open-webui	open-webui/open-webui (https://helm.openwebui.com/)	16.6.0	0.11.4	helm repo	open-webui/open-webui	152943	none	charts/repo-open-webui/open-webui/values.yaml
+localai	localai	go-skynet/local-ai (https://go-skynet.github.io/helm-charts/)	3.4.2	image latest	helm repo	mudler/LocalAI	49243	none	charts/repo-local-ai/local-ai/values.yaml
+litellm	litellm	oci://ghcr.io/berriai/litellm-helm	1.102.1	1.102.1	OCI	BerriAI/litellm	59503	none	charts/oci-litellm-helm/litellm-helm/values.yaml
+langfuse	langfuse	langfuse/langfuse (https://langfuse.github.io/langfuse-k8s)	2.1.2	4.38.0	helm repo	langfuse/langfuse	34980	clickhouse.crdCheck=false (offline render only, documented in chart error)	charts/repo-langfuse/langfuse/values.yaml
+n8n	n8n-minoverride	n8n-io/n8n-hosting charts/n8n (git 359e1772)	1.13.0	2.40.5	git (official)	n8n-io/n8n	205806	secretRefs.env.N8N_ENCRYPTION_KEY (chart refuses the placeholder: a secure default)	n8nh/charts/n8n/values.yaml
+qdrant	qdrant	qdrant/qdrant (https://qdrant.github.io/qdrant-helm)	1.19.1	v1.19.1	helm repo	qdrant/qdrant	34771	none	charts/repo-qdrant/qdrant/values.yaml
+weaviate	weaviate	weaviate/weaviate (https://weaviate.github.io/weaviate-helm)	17.8.3	1.38.2	helm repo	weaviate/weaviate	16841	none	charts/repo-weaviate/weaviate/values.yaml
+milvus	milvus	milvus/milvus (https://zilliztech.github.io/milvus-helm/)	5.0.28	3.0.1	helm repo	milvus-io/milvus	46242	none	charts/repo-milvus/milvus/values.yaml
+k8s-mcp-server-containers	k8s-mcp-server-minoverride	oci://ghcr.io/containers/charts/kubernetes-mcp-server	0.1.0	0.0.67 (image :latest)	OCI	containers/kubernetes-mcp-server	2116	ingress.host=mcp.example.invalid (chart requires a host because Ingress is on by default)	charts/oci-kubernetes-mcp-server/kubernetes-mcp-server/values.yaml
+mcp-server-kubernetes-flux159	flux159-mcp	Flux159/mcp-server-kubernetes helm-chart (git tag v4.1.7, 26a165cf)	2.8.0	2.8.0 (image :latest)	git	Flux159/mcp-server-kubernetes	1594	none	flux159/helm-chart/values.yaml

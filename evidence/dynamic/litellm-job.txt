@@ -1,0 +1,24 @@
+== job env (live API object) ==
+51-        env:
+52:        - name: DATABASE_URL
+53-          value: postgresql://litellm:UserChosenS3cret@rel-postgresql/litellm
+== pod env ==
+36:      - name: DATABASE_URL
+37-        value: postgresql://litellm:UserChosenS3cret@rel-postgresql/litellm
+== describe job ==
+      DATABASE_URL:           postgresql://litellm:UserChosenS3cret@rel-postgresql/litellm
+== dbcredentials secret postgres-password ==
+{"password":"VXNlckNob3NlblMzY3JldA==","postgres-password":"Tm9UYUdyRWFUcEFzU3dPckQ=","username":"bGl0ZWxsbQ=="}
+NoTaGrEaTpAsSwOrD
+== bitnami postgres secret keys ==
+{"password":"VXNlckNob3NlblMzY3JldA==","postgres-password":"REDACTED-RENDER-TIME-PASSWORD"}
+== master key secret ==
+NAME                        TYPE                 DATA   AGE
+rel-litellm-dbcredentials   Opaque               3      3m
+rel-litellm-masterkey       Opaque               1      3m
+rel-postgresql              Opaque               2      3m
+sh.helm.release.v1.rel.v1   helm.sh/release.v1   1      3m
+can get secrets: no
+can get jobs: yes
+Error from server (Forbidden): secrets "rel-litellm-dbcredentials" is forbidden: User "system:serviceaccount:litellm:job-reader" cannot get resource "secrets" in API group "" in the namespace "litellm"
+postgresql://litellm:UserChosenS3cret@rel-postgresql/litellm

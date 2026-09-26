@@ -1,0 +1,4 @@
+get secrets -A: no
+list pods -A: no
+get secrets -n kmcp: no
+create pods/exec -n kmcp: no

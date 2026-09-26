@@ -1,0 +1,1 @@
+milvus: distributed default (etcd x3, minio x4, pulsar, 5 milvus components). Not ready at 10 min on a single 8 GB kind node: minio/bookie Pending (resources), milvus components CrashLoopBackOff waiting on deps. Skipped.

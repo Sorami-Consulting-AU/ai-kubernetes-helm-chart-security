@@ -1,0 +1,95 @@
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:27:12Z
+# Ollama full probe log. Chart otwld/ollama 1.83.0 (app 0.34.2, image ollama/ollama:0.34.2), default values. Cluster <kind-context> (kind v0.33.0, node v1.37.0, arm64). Probe pod probe/curl (curlimages/curl:8.10.1). No credentials sent. Image pre-pulled into the node with crictl pull before install (2.79 GB).
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:27:12Z
+install: helm --kubeconfig <kubeconfig> --kube-context <kind-context> install rel <charts>/repo-ollama/ollama -n ollama --wait --timeout 10m
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:27:39Z
+curl: kubectl --kubeconfig <kubeconfig> --context <kind-context> -n probe exec curl -- curl -sS -i -m 15 -X GET -w \\n__STATUS__%\{http_code\} http://rel-ollama.ollama.svc:11434/ 
+method: GET
+url: http://rel-ollama.ollama.svc:11434/
+request_body: (none)
+http_status: 200
+response_headers:
+  HTTP/1.1 200 OK
+  Content-Type: text/plain; charset=utf-8
+  Date: Fri, 25 Sep 2026 00:27:39 GMT
+  Content-Length: 17
+response_body:
+Ollama is running
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:27:39Z
+curl: kubectl --kubeconfig <kubeconfig> --context <kind-context> -n probe exec curl -- curl -sS -i -m 15 -X GET -w \\n__STATUS__%\{http_code\} http://rel-ollama.ollama.svc:11434/api/version 
+method: GET
+url: http://rel-ollama.ollama.svc:11434/api/version
+request_body: (none)
+http_status: 200
+response_headers:
+  E0925 10:27:39.551420   70898 websocket.go:296] Unknown stream id 1, discarding message
+  HTTP/1.1 200 OK
+  Content-Type: application/json; charset=utf-8
+  Date: Fri, 25 Sep 2026 00:27:39 GMT
+  Content-Length: 20
+response_body:
+{"version":"0.34.2"}
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:27:39Z
+curl: kubectl --kubeconfig <kubeconfig> --context <kind-context> -n probe exec curl -- curl -sS -i -m 15 -X GET -w \\n__STATUS__%\{http_code\} http://rel-ollama.ollama.svc:11434/api/tags 
+method: GET
+url: http://rel-ollama.ollama.svc:11434/api/tags
+request_body: (none)
+http_status: 200
+response_headers:
+  HTTP/1.1 200 OK
+  Content-Type: application/json; charset=utf-8
+  Date: Fri, 25 Sep 2026 00:27:39 GMT
+  Content-Length: 13
+response_body:
+{"models":[]}
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:27:39Z
+curl: kubectl --kubeconfig <kubeconfig> --context <kind-context> -n probe exec curl -- curl -sS -i -m 15 -X GET -w \\n__STATUS__%\{http_code\} http://rel-ollama.ollama.svc:11434/api/ps 
+method: GET
+url: http://rel-ollama.ollama.svc:11434/api/ps
+request_body: (none)
+http_status: 200
+response_headers:
+  HTTP/1.1 200 OK
+  Content-Type: application/json; charset=utf-8
+  Date: Fri, 25 Sep 2026 00:27:39 GMT
+  Content-Length: 13
+response_body:
+{"models":[]}
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:27:39Z
+curl: kubectl --kubeconfig <kubeconfig> --context <kind-context> -n probe exec curl -- curl -sS -i -m 15 -X POST -w \\n__STATUS__%\{http_code\} -H Content-Type:\ application/json --data \{\"model\":\"sbd-probe-nonexistent\"\} http://rel-ollama.ollama.svc:11434/api/show 
+method: POST
+url: http://rel-ollama.ollama.svc:11434/api/show
+request_body: {"model":"sbd-probe-nonexistent"}
+http_status: 404
+response_headers:
+  HTTP/1.1 404 Not Found
+  Content-Type: application/json; charset=utf-8
+  Date: Fri, 25 Sep 2026 00:27:39 GMT
+  Content-Length: 58
+response_body:
+{"error":"model 'sbd-probe-nonexistent:latest' not found"}
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:27:39Z
+curl: kubectl --kubeconfig <kubeconfig> --context <kind-context> -n probe exec curl -- curl -sS -i -m 15 -X DELETE -w \\n__STATUS__%\{http_code\} -H Content-Type:\ application/json --data \{\"model\":\"sbd-probe-nonexistent\"\} http://rel-ollama.ollama.svc:11434/api/delete 
+method: DELETE
+url: http://rel-ollama.ollama.svc:11434/api/delete
+request_body: {"model":"sbd-probe-nonexistent"}
+http_status: 404
+response_headers:
+  HTTP/1.1 404 Not Found
+  Content-Type: application/json; charset=utf-8
+  Date: Fri, 25 Sep 2026 00:27:39 GMT
+  Content-Length: 51
+response_body:
+{"error":"model 'sbd-probe-nonexistent' not found"}
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:27:40Z
+runtime user: uid=0(root) gid=0(root) groups=0(root)
+----------------------------------------------------------------

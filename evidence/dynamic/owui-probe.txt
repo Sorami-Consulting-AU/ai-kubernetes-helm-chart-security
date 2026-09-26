@@ -1,0 +1,22 @@
+# open-webui
+
+{"detail":"Not authenticated"} HTTP 401
+
+{"detail":"Not authenticated"} HTTP 401
+
+{"detail":"Not authenticated"} HTTP 401
+
+{"detail":"Not authenticated"} HTTP 401
+
+# pipelines (sidecar service, default api key?)
+ HTTP 000command terminated with exit code 7
+
+ HTTP 000command terminated with exit code 7
+
+# ollama subchart direct
+ HTTP 000command terminated with exit code 7
+
+# pipelines + bundled ollama: still ContainerCreating (image pull) at 10 min, skipped per rule
+open-webui uid: uid=0(root) gid=0(root) groups=0(root)
+openaiApiKey default in chart values.yaml:549 = 0p3n-w3bu! (documented: 'Should be updated in a production deployment')
+rendered secret/env:

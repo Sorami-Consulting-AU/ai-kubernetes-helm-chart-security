@@ -1,0 +1,113 @@
+----------------------------------------------------------------
+timestamp_utc: 2026-09-24T23:49:52Z
+# Qdrant full probe log. Chart qdrant/qdrant 1.19.1 (app v1.19.1), default values. Cluster <kind-context> (kind v0.33.0, node v1.37.0, arm64). Probe pod probe/curl (curlimages/curl:8.10.1). No credentials sent.
+install: helm --kubeconfig <kubeconfig> --kube-context <kind-context> install rel <charts>/repo-qdrant/qdrant -n qdrant --wait --timeout 10m
+----------------------------------------------------------------
+timestamp_utc: 2026-09-24T23:50:16Z
+curl: kubectl --kubeconfig <kubeconfig> --context <kind-context> -n probe exec curl -- curl -sS -i -m 15 -X GET -w \\n__STATUS__%\{http_code\} http://rel-qdrant.qdrant.svc:6333/ 
+method: GET
+url: http://rel-qdrant.qdrant.svc:6333/
+request_body: (none)
+http_status: 200
+response_headers:
+  HTTP/1.1 200 OK
+  content-length: 112
+  vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+  content-type: application/json
+  date: Thu, 24 Sep 2026 23:50:16 GMT
+response_body:
+{"title":"qdrant - vector search engine","version":"1.19.1","commit":"6ab21cac18ebb6f4ae29102c7f8f5cc11affd5de"}
+----------------------------------------------------------------
+timestamp_utc: 2026-09-24T23:50:16Z
+curl: kubectl --kubeconfig <kubeconfig> --context <kind-context> -n probe exec curl -- curl -sS -i -m 15 -X GET -w \\n__STATUS__%\{http_code\} http://rel-qdrant.qdrant.svc:6333/collections 
+method: GET
+url: http://rel-qdrant.qdrant.svc:6333/collections
+request_body: (none)
+http_status: 200
+response_headers:
+  HTTP/1.1 200 OK
+  content-length: 59
+  content-type: application/json
+  vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+  date: Thu, 24 Sep 2026 23:50:16 GMT
+response_body:
+{"result":{"collections":[]},"status":"ok","time":4.125e-6}
+----------------------------------------------------------------
+timestamp_utc: 2026-09-24T23:50:16Z
+curl: kubectl --kubeconfig <kubeconfig> --context <kind-context> -n probe exec curl -- curl -sS -i -m 15 -X PUT -w \\n__STATUS__%\{http_code\} -H Content-Type:\ application/json --data \{\"vectors\":\{\"size\":4\,\"distance\":\"Cosine\"\}\} http://rel-qdrant.qdrant.svc:6333/collections/sbd_probe 
+method: PUT
+url: http://rel-qdrant.qdrant.svc:6333/collections/sbd_probe
+request_body: {"vectors":{"size":4,"distance":"Cosine"}}
+http_status: 200
+response_headers:
+  HTTP/1.1 200 OK
+  content-length: 48
+  vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+  content-type: application/json
+  date: Thu, 24 Sep 2026 23:50:16 GMT
+response_body:
+{"result":true,"status":"ok","time":0.055433208}
+----------------------------------------------------------------
+timestamp_utc: 2026-09-24T23:50:16Z
+curl: kubectl --kubeconfig <kubeconfig> --context <kind-context> -n probe exec curl -- curl -sS -i -m 15 -X GET -w \\n__STATUS__%\{http_code\} http://rel-qdrant.qdrant.svc:6333/collections 
+method: GET
+url: http://rel-qdrant.qdrant.svc:6333/collections
+request_body: (none)
+http_status: 200
+response_headers:
+  HTTP/1.1 200 OK
+  content-length: 79
+  vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+  content-type: application/json
+  date: Thu, 24 Sep 2026 23:50:16 GMT
+response_body:
+{"result":{"collections":[{"name":"sbd_probe"}]},"status":"ok","time":4.375e-6}
+----------------------------------------------------------------
+timestamp_utc: 2026-09-24T23:50:16Z
+curl: kubectl --kubeconfig <kubeconfig> --context <kind-context> -n probe exec curl -- curl -sS -i -m 15 -X GET -w \\n__STATUS__%\{http_code\} http://rel-qdrant.qdrant.svc:6333/collections/sbd_probe 
+method: GET
+url: http://rel-qdrant.qdrant.svc:6333/collections/sbd_probe
+request_body: (none)
+http_status: 200
+response_headers:
+  HTTP/1.1 200 OK
+  content-length: 831
+  vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+  content-type: application/json
+  date: Thu, 24 Sep 2026 23:50:16 GMT
+response_body:
+{"result":{"status":"green","optimizer_status":"ok","indexed_vectors_count":0,"points_count":0,"segments_count":5,"config":{"params":{"vectors":{"size":4,"distance":"Cosine"},"shard_number":1,"replication_factor":1,"write_consistency_factor":1,"on_disk_payload":true},"hnsw_config":{"m":16,"ef_construct":100,"full_scan_threshold":10000,"max_indexing_threads":0,"on_disk":false},"optimizer_config":{"deleted_threshold":0.2,"vacuum_min_vector_number":1000,"default_segment_number":0,"max_segment_size":null,"memmap_threshold":null,"indexing_threshold":10000,"flush_interval_sec":5,"max_optimization_threads":null,"prevent_unoptimized":null},"wal_config":{"wal_capacity_mb":32,"wal_segments_ahead":0,"wal_retain_closed":1},"quantization_config":null},"payload_schema":{},"update_queue":{"length":0}},"status":"ok","time":0.000860583}
+----------------------------------------------------------------
+timestamp_utc: 2026-09-24T23:50:16Z
+curl: kubectl --kubeconfig <kubeconfig> --context <kind-context> -n probe exec curl -- curl -sS -i -m 15 -X DELETE -w \\n__STATUS__%\{http_code\} http://rel-qdrant.qdrant.svc:6333/collections/sbd_probe 
+method: DELETE
+url: http://rel-qdrant.qdrant.svc:6333/collections/sbd_probe
+request_body: (none)
+http_status: 200
+response_headers:
+  HTTP/1.1 200 OK
+  content-length: 48
+  vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+  content-type: application/json
+  date: Thu, 24 Sep 2026 23:50:16 GMT
+response_body:
+{"result":true,"status":"ok","time":0.015957917}
+----------------------------------------------------------------
+timestamp_utc: 2026-09-24T23:50:16Z
+curl: kubectl --kubeconfig <kubeconfig> --context <kind-context> -n probe exec curl -- curl -sS -i -m 15 -X GET -w \\n__STATUS__%\{http_code\} http://rel-qdrant.qdrant.svc:6333/collections 
+method: GET
+url: http://rel-qdrant.qdrant.svc:6333/collections
+request_body: (none)
+http_status: 200
+response_headers:
+  HTTP/1.1 200 OK
+  content-length: 58
+  content-type: application/json
+  vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+  date: Thu, 24 Sep 2026 23:50:16 GMT
+response_body:
+{"result":{"collections":[]},"status":"ok","time":4.25e-6}
+----------------------------------------------------------------
+timestamp_utc: 2026-09-24T23:50:16Z
+runtime user: Defaulted container "qdrant" out of: qdrant, ensure-dir-ownership (init)
+uid=1000 gid=2000 groups=2000,3000

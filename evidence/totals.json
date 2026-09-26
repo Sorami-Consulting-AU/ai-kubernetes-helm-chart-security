@@ -1,0 +1,470 @@
+{
+ "tools": 15,
+ "mcp_tools_listed_unauthenticated": {
+  "flux159": 23,
+  "kmcp": 20
+ },
+ "matrix": {
+  "vllm-production-stack": {
+   "auth": "FAIL",
+   "root": "FAIL",
+   "privileged": "PASS",
+   "hostPath": "PASS",
+   "sa_token": "FAIL",
+   "cluster_secrets": "PASS",
+   "network_policy": "FAIL",
+   "limits": "PASS",
+   "pinned_tag": "FAIL",
+   "telemetry": "PASS",
+   "default_creds": "PASS",
+   "exposure": "PASS"
+  },
+  "kserve": {
+   "auth": "NA",
+   "root": "PASS",
+   "privileged": "PASS",
+   "hostPath": "PASS",
+   "sa_token": "FAIL",
+   "cluster_secrets": "FAIL",
+   "network_policy": "FAIL",
+   "limits": "PASS",
+   "pinned_tag": "PASS",
+   "telemetry": "PASS",
+   "default_creds": "PASS",
+   "exposure": "PASS"
+  },
+  "kuberay": {
+   "auth": "FAIL",
+   "root": "FAIL",
+   "privileged": "PASS",
+   "hostPath": "PASS",
+   "sa_token": "FAIL",
+   "cluster_secrets": "FAIL",
+   "network_policy": "FAIL",
+   "limits": "PASS",
+   "pinned_tag": "PASS",
+   "telemetry": "FAIL",
+   "default_creds": "PASS",
+   "exposure": "PASS"
+  },
+  "aibrix": {
+   "auth": "FAIL",
+   "root": "FAIL",
+   "privileged": "PASS",
+   "hostPath": "PASS",
+   "sa_token": "FAIL",
+   "cluster_secrets": "FAIL",
+   "network_policy": "FAIL",
+   "limits": "FAIL",
+   "pinned_tag": "FAIL",
+   "telemetry": "PASS",
+   "default_creds": "PASS",
+   "exposure": "FAIL"
+  },
+  "ollama-otwld": {
+   "auth": "FAIL",
+   "root": "FAIL",
+   "privileged": "PASS",
+   "hostPath": "PASS",
+   "sa_token": "FAIL",
+   "cluster_secrets": "PASS",
+   "network_policy": "FAIL",
+   "limits": "FAIL",
+   "pinned_tag": "PASS",
+   "telemetry": "PASS",
+   "default_creds": "PASS",
+   "exposure": "PASS"
+  },
+  "open-webui": {
+   "auth": "PASS",
+   "root": "FAIL",
+   "privileged": "PASS",
+   "hostPath": "PASS",
+   "sa_token": "FAIL",
+   "cluster_secrets": "PASS",
+   "network_policy": "FAIL",
+   "limits": "FAIL",
+   "pinned_tag": "FAIL",
+   "telemetry": "PASS",
+   "default_creds": "PASS",
+   "exposure": "PASS"
+  },
+  "localai": {
+   "auth": "FAIL",
+   "root": "FAIL",
+   "privileged": "PASS",
+   "hostPath": "PASS",
+   "sa_token": "FAIL",
+   "cluster_secrets": "PASS",
+   "network_policy": "FAIL",
+   "limits": "FAIL",
+   "pinned_tag": "FAIL",
+   "telemetry": "PASS",
+   "default_creds": "PASS",
+   "exposure": "PASS"
+  },
+  "litellm": {
+   "auth": "PASS",
+   "root": "FAIL",
+   "privileged": "PASS",
+   "hostPath": "PASS",
+   "sa_token": "FAIL",
+   "cluster_secrets": "PASS",
+   "network_policy": "PASS",
+   "limits": "FAIL",
+   "pinned_tag": "PASS",
+   "telemetry": "PASS",
+   "default_creds": "FAIL",
+   "exposure": "PASS"
+  },
+  "langfuse": {
+   "auth": "PASS",
+   "root": "FAIL",
+   "privileged": "PASS",
+   "hostPath": "PASS",
+   "sa_token": "FAIL",
+   "cluster_secrets": "PASS",
+   "network_policy": "FAIL",
+   "limits": "FAIL",
+   "pinned_tag": "PASS",
+   "telemetry": "FAIL",
+   "default_creds": "PASS",
+   "exposure": "PASS"
+  },
+  "n8n": {
+   "auth": "PASS",
+   "root": "PASS",
+   "privileged": "PASS",
+   "hostPath": "PASS",
+   "sa_token": "FAIL",
+   "cluster_secrets": "PASS",
+   "network_policy": "FAIL",
+   "limits": "PASS",
+   "pinned_tag": "PASS",
+   "telemetry": "FAIL",
+   "default_creds": "PASS",
+   "exposure": "PASS"
+  },
+  "qdrant": {
+   "auth": "FAIL",
+   "root": "PASS",
+   "privileged": "PASS",
+   "hostPath": "PASS",
+   "sa_token": "FAIL",
+   "cluster_secrets": "PASS",
+   "network_policy": "FAIL",
+   "limits": "FAIL",
+   "pinned_tag": "PASS",
+   "telemetry": "FAIL",
+   "default_creds": "PASS",
+   "exposure": "PASS"
+  },
+  "weaviate": {
+   "auth": "FAIL",
+   "root": "FAIL",
+   "privileged": "FAIL",
+   "hostPath": "PASS",
+   "sa_token": "FAIL",
+   "cluster_secrets": "PASS",
+   "network_policy": "FAIL",
+   "limits": "FAIL",
+   "pinned_tag": "FAIL",
+   "telemetry": "FAIL",
+   "default_creds": "PASS",
+   "exposure": "FAIL"
+  },
+  "milvus": {
+   "auth": "FAIL",
+   "root": "FAIL",
+   "privileged": "PASS",
+   "hostPath": "PASS",
+   "sa_token": "FAIL",
+   "cluster_secrets": "PASS",
+   "network_policy": "FAIL",
+   "limits": "FAIL",
+   "pinned_tag": "PASS",
+   "telemetry": "PASS",
+   "default_creds": "FAIL",
+   "exposure": "PASS"
+  },
+  "k8s-mcp-server-containers": {
+   "auth": "FAIL",
+   "root": "PASS",
+   "privileged": "PASS",
+   "hostPath": "PASS",
+   "sa_token": "FAIL",
+   "cluster_secrets": "PASS",
+   "network_policy": "FAIL",
+   "limits": "PASS",
+   "pinned_tag": "FAIL",
+   "telemetry": "PASS",
+   "default_creds": "PASS",
+   "exposure": "FAIL"
+  },
+  "mcp-server-kubernetes-flux159": {
+   "auth": "FAIL",
+   "root": "PASS",
+   "privileged": "PASS",
+   "hostPath": "PASS",
+   "sa_token": "FAIL",
+   "cluster_secrets": "FAIL",
+   "network_policy": "FAIL",
+   "limits": "PASS",
+   "pinned_tag": "FAIL",
+   "telemetry": "PASS",
+   "default_creds": "PASS",
+   "exposure": "PASS"
+  }
+ },
+ "totals": {
+  "auth": {
+   "fail": 10,
+   "applicable": 14
+  },
+  "root": {
+   "fail": 10,
+   "applicable": 15
+  },
+  "privileged": {
+   "fail": 1,
+   "applicable": 15
+  },
+  "hostPath": {
+   "fail": 0,
+   "applicable": 15
+  },
+  "sa_token": {
+   "fail": 15,
+   "applicable": 15
+  },
+  "cluster_secrets": {
+   "fail": 4,
+   "applicable": 15
+  },
+  "network_policy": {
+   "fail": 14,
+   "applicable": 15
+  },
+  "limits": {
+   "fail": 9,
+   "applicable": 15
+  },
+  "pinned_tag": {
+   "fail": 7,
+   "applicable": 15
+  },
+  "telemetry": {
+   "fail": 5,
+   "applicable": 15
+  },
+  "default_creds": {
+   "fail": 2,
+   "applicable": 15
+  },
+  "exposure": {
+   "fail": 3,
+   "applicable": 15
+  }
+ },
+ "auth_off_and_root": {
+  "count": 7,
+  "tools": [
+   "vllm-production-stack",
+   "kuberay",
+   "aibrix",
+   "ollama-otwld",
+   "localai",
+   "weaviate",
+   "milvus"
+  ]
+ },
+ "fails_per_tool": {
+  "vllm-production-stack": 5,
+  "kserve": 3,
+  "kuberay": 6,
+  "aibrix": 8,
+  "ollama-otwld": 5,
+  "open-webui": 5,
+  "localai": 6,
+  "litellm": 4,
+  "langfuse": 5,
+  "n8n": 3,
+  "qdrant": 5,
+  "weaviate": 9,
+  "milvus": 6,
+  "k8s-mcp-server-containers": 5,
+  "mcp-server-kubernetes-flux159": 5
+ },
+ "dynamic": {
+  "probed": 8,
+  "probed_tools": [
+   "kuberay",
+   "ollama-otwld",
+   "open-webui",
+   "litellm",
+   "qdrant",
+   "weaviate",
+   "k8s-mcp-server-containers",
+   "mcp-server-kubernetes-flux159"
+  ],
+  "not_started": 7,
+  "auth_off_static_probed": 6,
+  "auth_off_confirmed_live": 6,
+  "auth_off_live_tools": [
+   "kuberay",
+   "ollama-otwld",
+   "qdrant",
+   "weaviate",
+   "k8s-mcp-server-containers",
+   "mcp-server-kubernetes-flux159"
+  ],
+  "auth_on_static_probed": 2,
+  "auth_on_confirmed_live": 2,
+  "auth_on_live_tools": [
+   "open-webui",
+   "litellm"
+  ],
+  "uid_recorded": {
+   "kuberay": "1000 (ray), passwordless sudo to uid 0",
+   "ollama-otwld": "0 (root)",
+   "open-webui": "0 (root)",
+   "qdrant": "1000",
+   "weaviate": "0 (root)"
+  },
+  "root_static_with_uid_recorded": 4,
+  "ran_as_uid0_live": 3,
+  "uid0_tools": [
+   "ollama-otwld",
+   "open-webui",
+   "weaviate"
+  ]
+ },
+ "scanners": {
+  "vllm-production-stack": {
+   "kubescape_score": "79.3",
+   "kubescape_high_crit_controls": "6",
+   "checkov_failed": "14",
+   "kubelinter_findings": "4",
+   "trivy_high_crit": "3",
+   "trivy_total_fail": "16"
+  },
+  "kserve": {
+   "kubescape_score": "80.4",
+   "kubescape_high_crit_controls": "6",
+   "checkov_failed": "8",
+   "kubelinter_findings": "3",
+   "trivy_high_crit": "5",
+   "trivy_total_fail": "15"
+  },
+  "kuberay": {
+   "kubescape_score": "79.2",
+   "kubescape_high_crit_controls": "6",
+   "checkov_failed": "6",
+   "kubelinter_findings": "1",
+   "trivy_high_crit": "5",
+   "trivy_total_fail": "13"
+  },
+  "aibrix": {
+   "kubescape_score": "79.4",
+   "kubescape_high_crit_controls": "11",
+   "checkov_failed": "",
+   "kubelinter_findings": "20",
+   "trivy_high_crit": "22",
+   "trivy_total_fail": "104"
+  },
+  "ollama-otwld": {
+   "kubescape_score": "76.4",
+   "kubescape_high_crit_controls": "7",
+   "checkov_failed": "34",
+   "kubelinter_findings": "9",
+   "trivy_high_crit": "6",
+   "trivy_total_fail": "34"
+  },
+  "open-webui": {
+   "kubescape_score": "76.6",
+   "kubescape_high_crit_controls": "7",
+   "checkov_failed": "88",
+   "kubelinter_findings": "25",
+   "trivy_high_crit": "17",
+   "trivy_total_fail": "100"
+  },
+  "localai": {
+   "kubescape_score": "73.7",
+   "kubescape_high_crit_controls": "7",
+   "checkov_failed": "18",
+   "kubelinter_findings": "5",
+   "trivy_high_crit": "3",
+   "trivy_total_fail": "18"
+  },
+  "litellm": {
+   "kubescape_score": "77.3",
+   "kubescape_high_crit_controls": "7",
+   "checkov_failed": "82",
+   "kubelinter_findings": "21",
+   "trivy_high_crit": "13",
+   "trivy_total_fail": "81"
+  },
+  "langfuse": {
+   "kubescape_score": "75.7",
+   "kubescape_high_crit_controls": "10",
+   "checkov_failed": "106",
+   "kubelinter_findings": "29",
+   "trivy_high_crit": "17",
+   "trivy_total_fail": "122"
+  },
+  "n8n": {
+   "kubescape_score": "78.4",
+   "kubescape_high_crit_controls": "9",
+   "checkov_failed": "34",
+   "kubelinter_findings": "9",
+   "trivy_high_crit": "5",
+   "trivy_total_fail": "27"
+  },
+  "qdrant": {
+   "kubescape_score": "80.4",
+   "kubescape_high_crit_controls": "6",
+   "checkov_failed": "38",
+   "kubelinter_findings": "9",
+   "trivy_high_crit": "5",
+   "trivy_total_fail": "44"
+  },
+  "weaviate": {
+   "kubescape_score": "76.6",
+   "kubescape_high_crit_controls": "8",
+   "checkov_failed": "24",
+   "kubelinter_findings": "11",
+   "trivy_high_crit": "5",
+   "trivy_total_fail": "36"
+  },
+  "milvus": {
+   "kubescape_score": "73.8",
+   "kubescape_high_crit_controls": "11",
+   "checkov_failed": "217",
+   "kubelinter_findings": "84",
+   "trivy_high_crit": "55",
+   "trivy_total_fail": "356"
+  },
+  "k8s-mcp-server-containers": {
+   "kubescape_score": "85.4",
+   "kubescape_high_crit_controls": "3",
+   "checkov_failed": "6",
+   "kubelinter_findings": "1",
+   "trivy_high_crit": "0",
+   "trivy_total_fail": "4"
+  },
+  "mcp-server-kubernetes-flux159": {
+   "kubescape_score": "72.1",
+   "kubescape_high_crit_controls": "8",
+   "checkov_failed": "45",
+   "kubelinter_findings": "9",
+   "trivy_high_crit": "7",
+   "trivy_total_fail": "45"
+  }
+ },
+ "scanner_sums": {
+  "checkov_failed": 720,
+  "kubelinter_findings": 240,
+  "trivy_high_crit": 168,
+  "trivy_total_fail": 1015
+ }
+}

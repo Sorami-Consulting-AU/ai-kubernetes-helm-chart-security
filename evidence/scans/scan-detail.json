@@ -1,0 +1,1096 @@
+{
+ "vllm-production-stack": {
+  "vllm-stack": {
+   "kubescape": {
+    "ran": true,
+    "failed_controls": 19,
+    "by_severity": {
+     "Critical": 0,
+     "High": 6,
+     "Medium": 10,
+     "Low": 3
+    },
+    "top": [
+     "C-0009 Resource limits (High, 1 resources)",
+     "C-0013 Non-root containers (Medium, 1 resources)",
+     "C-0016 Allow privilege escalation (Medium, 1 resources)",
+     "C-0017 Immutable container filesystem (Low, 1 resources)",
+     "C-0030 Ingress and Egress blocked (Medium, 1 resources)"
+    ],
+    "high_crit_ids": [
+     "C-0009",
+     "C-0050",
+     "C-0211",
+     "C-0237",
+     "C-0261",
+     "C-0270"
+    ]
+   },
+   "checkov": {
+    "ran": true,
+    "failed": 14,
+    "passed": 91,
+    "severity": "not rated (Checkov severities need a Prisma Cloud API key)",
+    "top": [
+     "CKV2_K8S_6 Minimize the admission of pods which lack an associated NetworkPolicy (x1)",
+     "CKV_K8S_11 CPU limits should be set (x1)",
+     "CKV_K8S_14 Image Tag should be fixed - not latest or blank (x1)",
+     "CKV_K8S_20 Containers should not run with allowPrivilegeEscalation (x1)",
+     "CKV_K8S_22 Use read-only filesystem for containers where possible (x1)"
+    ]
+   },
+   "kubelinter": {
+    "ran": true,
+    "findings": 4,
+    "severity": "not rated (kube-linter has no severity field)",
+    "top": [
+     "dangling-service (x1)",
+     "latest-tag (x1)",
+     "no-read-only-root-fs (x1)",
+     "run-as-non-root (x1)"
+    ]
+   },
+   "trivy": {
+    "ran": true,
+    "failed": 16,
+    "by_severity": {
+     "CRITICAL": 0,
+     "HIGH": 3,
+     "MEDIUM": 6,
+     "LOW": 7
+    },
+    "top": [
+     "KSV-0118 Default security context configured (x2)",
+     "KSV-0001 Can elevate its own privileges (x1)",
+     "KSV-0003 Default capabilities: some containers do not drop all (x1)",
+     "KSV-0004 Default capabilities: some containers do not drop any (x1)",
+     "KSV-0011 CPU not limited (x1)"
+    ]
+   }
+  }
+ },
+ "kserve": {
+  "kserve": {
+   "kubescape": {
+    "ran": true,
+    "failed_controls": 21,
+    "by_severity": {
+     "Critical": 0,
+     "High": 6,
+     "Medium": 13,
+     "Low": 2
+    },
+    "top": [
+     "C-0053 Access container service account (Medium, 3 resources)",
+     "C-0012 Applications credentials in configuration files (High, 2 resources)",
+     "C-0037 CoreDNS poisoning (Medium, 2 resources)",
+     "C-0007 Roles with delete capabilities (Medium, 1 resources)",
+     "C-0013 Non-root containers (Medium, 1 resources)"
+    ],
+    "high_crit_ids": [
+     "C-0012",
+     "C-0015",
+     "C-0211",
+     "C-0237",
+     "C-0259",
+     "C-0261"
+    ]
+   },
+   "checkov": {
+    "ran": true,
+    "failed": 8,
+    "passed": 121,
+    "severity": "not rated (Checkov severities need a Prisma Cloud API key)",
+    "top": [
+     "CKV2_K8S_6 Minimize the admission of pods which lack an associated NetworkPolicy (x1)",
+     "CKV_K8S_15 Image Pull Policy should be Always (x1)",
+     "CKV_K8S_155 Minimize ClusterRoles that grant control over validating or mutating admission webhook configurations (x1)",
+     "CKV_K8S_38 Ensure that Service Account Tokens are only mounted where necessary (x1)",
+     "CKV_K8S_40 Containers should run as a high UID to avoid host conflict (x1)"
+    ]
+   },
+   "kubelinter": {
+    "ran": true,
+    "findings": 3,
+    "severity": "not rated (kube-linter has no severity field)",
+    "top": [
+     "env-var-secret (x1)",
+     "liveness-port (x1)",
+     "readiness-port (x1)"
+    ]
+   },
+   "trivy": {
+    "ran": true,
+    "failed": 15,
+    "by_severity": {
+     "CRITICAL": 2,
+     "HIGH": 3,
+     "MEDIUM": 6,
+     "LOW": 4
+    },
+    "top": [
+     "KSV-0056 Manage Kubernetes networking (x3)",
+     "KSV-0020 Runs with UID <= 10000 (x2)",
+     "KSV-0021 Runs with GID <= 10000 (x2)",
+     "KSV-0049 Manage configmaps (x2)",
+     "KSV-0125 Restrict container images to trusted registries (x2)"
+    ]
+   }
+  }
+ },
+ "kuberay": {
+  "kuberay-operator": {
+   "kubescape": {
+    "ran": true,
+    "failed_controls": 21,
+    "by_severity": {
+     "Critical": 0,
+     "High": 6,
+     "Medium": 11,
+     "Low": 4
+    },
+    "top": [
+     "C-0053 Access container service account (Medium, 2 resources)",
+     "C-0004 Resources memory limit and request (High, 1 resources)",
+     "C-0007 Roles with delete capabilities (Medium, 1 resources)",
+     "C-0013 Non-root containers (Medium, 1 resources)",
+     "C-0015 List Kubernetes secrets (High, 1 resources)"
+    ],
+    "high_crit_ids": [
+     "C-0004",
+     "C-0015",
+     "C-0050",
+     "C-0211",
+     "C-0237",
+     "C-0261"
+    ]
+   },
+   "checkov": {
+    "ran": true,
+    "failed": 6,
+    "passed": 136,
+    "severity": "not rated (Checkov severities need a Prisma Cloud API key)",
+    "top": [
+     "CKV2_K8S_6 Minimize the admission of pods which lack an associated NetworkPolicy (x1)",
+     "CKV_K8S_15 Image Pull Policy should be Always (x1)",
+     "CKV_K8S_29 Apply security context to your pods and containers (x1)",
+     "CKV_K8S_38 Ensure that Service Account Tokens are only mounted where necessary (x1)",
+     "CKV_K8S_40 Containers should run as a high UID to avoid host conflict (x1)"
+    ]
+   },
+   "kubelinter": {
+    "ran": true,
+    "findings": 1,
+    "severity": "not rated (kube-linter has no severity field)",
+    "top": [
+     "unset-cpu-requirements (x1)"
+    ]
+   },
+   "trivy": {
+    "ran": true,
+    "failed": 13,
+    "by_severity": {
+     "CRITICAL": 1,
+     "HIGH": 4,
+     "MEDIUM": 4,
+     "LOW": 4
+    },
+    "top": [
+     "KSV-0056 Manage Kubernetes networking (x3)",
+     "KSV-0048 Manage Kubernetes workloads and pods (x2)",
+     "KSV-0015 CPU requests not specified (x1)",
+     "KSV-0016 Memory requests not specified (x1)",
+     "KSV-0020 Runs with UID <= 10000 (x1)"
+    ]
+   }
+  },
+  "ray-cluster": {
+   "kubescape": {
+    "ran": false
+   },
+   "checkov": {
+    "ran": true,
+    "failed": null,
+    "note": "no resources parsed"
+   },
+   "kubelinter": {
+    "ran": true,
+    "findings": 0,
+    "severity": "not rated (kube-linter has no severity field)",
+    "top": []
+   },
+   "trivy": {
+    "ran": true,
+    "failed": 0,
+    "by_severity": {
+     "CRITICAL": 0,
+     "HIGH": 0,
+     "MEDIUM": 0,
+     "LOW": 0
+    },
+    "top": []
+   }
+  }
+ },
+ "aibrix": {
+  "aibrix": {
+   "kubescape": {
+    "ran": true,
+    "failed_controls": 31,
+    "by_severity": {
+     "Critical": 0,
+     "High": 11,
+     "Medium": 16,
+     "Low": 4
+    },
+    "top": [
+     "C-0013 Non-root containers (Medium, 5 resources)",
+     "C-0017 Immutable container filesystem (Low, 5 resources)",
+     "C-0030 Ingress and Egress blocked (Medium, 5 resources)",
+     "C-0034 Automatic mapping of service account (Medium, 5 resources)",
+     "C-0053 Access container service account (Medium, 5 resources)"
+    ],
+    "high_crit_ids": [
+     "C-0004",
+     "C-0009",
+     "C-0012",
+     "C-0015",
+     "C-0050",
+     "C-0211",
+     "C-0237",
+     "C-0255",
+     "C-0259",
+     "C-0270",
+     "C-0271"
+    ]
+   },
+   "checkov": {
+    "ran": true,
+    "failed": null,
+    "note": "no resources parsed"
+   },
+   "kubelinter": {
+    "ran": true,
+    "findings": 20,
+    "severity": "not rated (kube-linter has no severity field)",
+    "top": [
+     "no-read-only-root-fs (x7)",
+     "run-as-non-root (x6)",
+     "unset-memory-requirements (x3)",
+     "unset-cpu-requirements (x2)",
+     "liveness-port (x1)"
+    ]
+   },
+   "trivy": {
+    "ran": true,
+    "failed": 104,
+    "by_severity": {
+     "CRITICAL": 2,
+     "HIGH": 20,
+     "MEDIUM": 28,
+     "LOW": 54
+    },
+    "top": [
+     "KSV-0118 Default security context configured (x10)",
+     "KSV-0014 Root file system is not read-only (x7)",
+     "KSV-0020 Runs with UID <= 10000 (x7)",
+     "KSV-0021 Runs with GID <= 10000 (x7)",
+     "KSV-0030 Runtime/Default Seccomp profile not set (x7)"
+    ]
+   }
+  }
+ },
+ "ollama-otwld": {
+  "ollama": {
+   "kubescape": {
+    "ran": true,
+    "failed_controls": 23,
+    "by_severity": {
+     "Critical": 0,
+     "High": 7,
+     "Medium": 9,
+     "Low": 7
+    },
+    "top": [
+     "C-0004 Resources memory limit and request (High, 2 resources)",
+     "C-0009 Resource limits (High, 2 resources)",
+     "C-0013 Non-root containers (Medium, 2 resources)",
+     "C-0016 Allow privilege escalation (Medium, 2 resources)",
+     "C-0017 Immutable container filesystem (Low, 2 resources)"
+    ],
+    "high_crit_ids": [
+     "C-0004",
+     "C-0009",
+     "C-0050",
+     "C-0211",
+     "C-0237",
+     "C-0270",
+     "C-0271"
+    ]
+   },
+   "checkov": {
+    "ran": true,
+    "failed": 34,
+    "passed": 147,
+    "severity": "not rated (Checkov severities need a Prisma Cloud API key)",
+    "top": [
+     "CKV2_K8S_6 Minimize the admission of pods which lack an associated NetworkPolicy (x2)",
+     "CKV_K8S_10 CPU requests should be set (x2)",
+     "CKV_K8S_11 CPU limits should be set (x2)",
+     "CKV_K8S_12 Memory requests should be set (x2)",
+     "CKV_K8S_13 Memory limits should be set (x2)"
+    ]
+   },
+   "kubelinter": {
+    "ran": true,
+    "findings": 9,
+    "severity": "not rated (kube-linter has no severity field)",
+    "top": [
+     "no-read-only-root-fs (x2)",
+     "run-as-non-root (x2)",
+     "unset-cpu-requirements (x2)",
+     "unset-memory-requirements (x2)",
+     "latest-tag (x1)"
+    ]
+   },
+   "trivy": {
+    "ran": true,
+    "failed": 34,
+    "by_severity": {
+     "CRITICAL": 0,
+     "HIGH": 6,
+     "MEDIUM": 8,
+     "LOW": 20
+    },
+    "top": [
+     "KSV-0118 Default security context configured (x4)",
+     "KSV-0001 Can elevate its own privileges (x2)",
+     "KSV-0003 Default capabilities: some containers do not drop all (x2)",
+     "KSV-0004 Default capabilities: some containers do not drop any (x2)",
+     "KSV-0011 CPU not limited (x2)"
+    ]
+   }
+  }
+ },
+ "open-webui": {
+  "open-webui": {
+   "kubescape": {
+    "ran": true,
+    "failed_controls": 25,
+    "by_severity": {
+     "Critical": 0,
+     "High": 7,
+     "Medium": 10,
+     "Low": 8
+    },
+    "top": [
+     "C-0004 Resources memory limit and request (High, 5 resources)",
+     "C-0009 Resource limits (High, 5 resources)",
+     "C-0013 Non-root containers (Medium, 5 resources)",
+     "C-0016 Allow privilege escalation (Medium, 5 resources)",
+     "C-0017 Immutable container filesystem (Low, 5 resources)"
+    ],
+    "high_crit_ids": [
+     "C-0004",
+     "C-0009",
+     "C-0050",
+     "C-0211",
+     "C-0237",
+     "C-0270",
+     "C-0271"
+    ]
+   },
+   "checkov": {
+    "ran": true,
+    "failed": 88,
+    "passed": 367,
+    "severity": "not rated (Checkov severities need a Prisma Cloud API key)",
+    "top": [
+     "CKV2_K8S_6 Minimize the admission of pods which lack an associated NetworkPolicy (x5)",
+     "CKV_K8S_10 CPU requests should be set (x5)",
+     "CKV_K8S_11 CPU limits should be set (x5)",
+     "CKV_K8S_12 Memory requests should be set (x5)",
+     "CKV_K8S_13 Memory limits should be set (x5)"
+    ]
+   },
+   "kubelinter": {
+    "ran": true,
+    "findings": 25,
+    "severity": "not rated (kube-linter has no severity field)",
+    "top": [
+     "no-read-only-root-fs (x6)",
+     "run-as-non-root (x6)",
+     "unset-cpu-requirements (x6)",
+     "unset-memory-requirements (x6)",
+     "latest-tag (x1)"
+    ]
+   },
+   "trivy": {
+    "ran": true,
+    "failed": 100,
+    "by_severity": {
+     "CRITICAL": 0,
+     "HIGH": 17,
+     "MEDIUM": 23,
+     "LOW": 60
+    },
+    "top": [
+     "KSV-0118 Default security context configured (x11)",
+     "KSV-0001 Can elevate its own privileges (x6)",
+     "KSV-0003 Default capabilities: some containers do not drop all (x6)",
+     "KSV-0004 Default capabilities: some containers do not drop any (x6)",
+     "KSV-0011 CPU not limited (x6)"
+    ]
+   }
+  }
+ },
+ "localai": {
+  "localai": {
+   "kubescape": {
+    "ran": true,
+    "failed_controls": 25,
+    "by_severity": {
+     "Critical": 0,
+     "High": 7,
+     "Medium": 11,
+     "Low": 7
+    },
+    "top": [
+     "C-0004 Resources memory limit and request (High, 1 resources)",
+     "C-0009 Resource limits (High, 1 resources)",
+     "C-0013 Non-root containers (Medium, 1 resources)",
+     "C-0016 Allow privilege escalation (Medium, 1 resources)",
+     "C-0017 Immutable container filesystem (Low, 1 resources)"
+    ],
+    "high_crit_ids": [
+     "C-0004",
+     "C-0009",
+     "C-0050",
+     "C-0211",
+     "C-0237",
+     "C-0270",
+     "C-0271"
+    ]
+   },
+   "checkov": {
+    "ran": true,
+    "failed": 18,
+    "passed": 70,
+    "severity": "not rated (Checkov severities need a Prisma Cloud API key)",
+    "top": [
+     "CKV2_K8S_6 Minimize the admission of pods which lack an associated NetworkPolicy (x1)",
+     "CKV_K8S_11 CPU limits should be set (x1)",
+     "CKV_K8S_13 Memory limits should be set (x1)",
+     "CKV_K8S_14 Image Tag should be fixed - not latest or blank (x1)",
+     "CKV_K8S_15 Image Pull Policy should be Always (x1)"
+    ]
+   },
+   "kubelinter": {
+    "ran": true,
+    "findings": 5,
+    "severity": "not rated (kube-linter has no severity field)",
+    "top": [
+     "latest-tag (x1)",
+     "no-read-only-root-fs (x1)",
+     "run-as-non-root (x1)",
+     "unset-cpu-requirements (x1)",
+     "unset-memory-requirements (x1)"
+    ]
+   },
+   "trivy": {
+    "ran": true,
+    "failed": 18,
+    "by_severity": {
+     "CRITICAL": 0,
+     "HIGH": 3,
+     "MEDIUM": 5,
+     "LOW": 10
+    },
+    "top": [
+     "KSV-0118 Default security context configured (x2)",
+     "KSV-0001 Can elevate its own privileges (x1)",
+     "KSV-0003 Default capabilities: some containers do not drop all (x1)",
+     "KSV-0004 Default capabilities: some containers do not drop any (x1)",
+     "KSV-0011 CPU not limited (x1)"
+    ]
+   }
+  }
+ },
+ "litellm": {
+  "litellm": {
+   "kubescape": {
+    "ran": true,
+    "failed_controls": 25,
+    "by_severity": {
+     "Critical": 0,
+     "High": 7,
+     "Medium": 11,
+     "Low": 7
+    },
+    "top": [
+     "C-0004 Resources memory limit and request (High, 5 resources)",
+     "C-0009 Resource limits (High, 5 resources)",
+     "C-0013 Non-root containers (Medium, 5 resources)",
+     "C-0017 Immutable container filesystem (Low, 5 resources)",
+     "C-0050 Resources CPU limit and request (High, 5 resources)"
+    ],
+    "high_crit_ids": [
+     "C-0004",
+     "C-0009",
+     "C-0050",
+     "C-0211",
+     "C-0237",
+     "C-0270",
+     "C-0271"
+    ]
+   },
+   "checkov": {
+    "ran": true,
+    "failed": 82,
+    "passed": 368,
+    "severity": "not rated (Checkov severities need a Prisma Cloud API key)",
+    "top": [
+     "CKV_K8S_21 The default namespace should not be used (x8)",
+     "CKV_K8S_11 CPU limits should be set (x5)",
+     "CKV_K8S_13 Memory limits should be set (x5)",
+     "CKV_K8S_22 Use read-only filesystem for containers where possible (x5)",
+     "CKV_K8S_40 Containers should run as a high UID to avoid host conflict (x5)"
+    ]
+   },
+   "kubelinter": {
+    "ran": true,
+    "findings": 21,
+    "severity": "not rated (kube-linter has no severity field)",
+    "top": [
+     "no-read-only-root-fs (x5)",
+     "unset-cpu-requirements (x5)",
+     "unset-memory-requirements (x5)",
+     "run-as-non-root (x4)",
+     "latest-tag (x2)"
+    ]
+   },
+   "trivy": {
+    "ran": true,
+    "failed": 81,
+    "by_severity": {
+     "CRITICAL": 0,
+     "HIGH": 13,
+     "MEDIUM": 18,
+     "LOW": 50
+    },
+    "top": [
+     "KSV-0118 Default security context configured (x8)",
+     "KSV-0011 CPU not limited (x5)",
+     "KSV-0014 Root file system is not read-only (x5)",
+     "KSV-0015 CPU requests not specified (x5)",
+     "KSV-0016 Memory requests not specified (x5)"
+    ]
+   }
+  }
+ },
+ "langfuse": {
+  "langfuse": {
+   "kubescape": {
+    "ran": true,
+    "failed_controls": 32,
+    "by_severity": {
+     "Critical": 0,
+     "High": 10,
+     "Medium": 14,
+     "Low": 8
+    },
+    "top": [
+     "C-0030 Ingress and Egress blocked (Medium, 7 resources)",
+     "C-0076 Label usage for resources (Low, 7 resources)",
+     "C-0211 Apply Security Context to Your Pods and Containers (High, 7 resources)",
+     "C-0237 Check if signature exists (High, 7 resources)",
+     "C-0260 Missing network policy (Medium, 7 resources)"
+    ],
+    "high_crit_ids": [
+     "C-0004",
+     "C-0009",
+     "C-0012",
+     "C-0050",
+     "C-0211",
+     "C-0237",
+     "C-0255",
+     "C-0259",
+     "C-0270",
+     "C-0271"
+    ]
+   },
+   "checkov": {
+    "ran": true,
+    "failed": 106,
+    "passed": 542,
+    "severity": "not rated (Checkov severities need a Prisma Cloud API key)",
+    "top": [
+     "CKV_K8S_21 The default namespace should not be used (x10)",
+     "CKV2_K8S_6 Minimize the admission of pods which lack an associated NetworkPolicy (x7)",
+     "CKV_K8S_40 Containers should run as a high UID to avoid host conflict (x7)",
+     "CKV_K8S_43 Image should use digest (x7)",
+     "CKV_K8S_11 CPU limits should be set (x6)"
+    ]
+   },
+   "kubelinter": {
+    "ran": true,
+    "findings": 29,
+    "severity": "not rated (kube-linter has no severity field)",
+    "top": [
+     "unset-cpu-requirements (x8)",
+     "unset-memory-requirements (x8)",
+     "no-read-only-root-fs (x5)",
+     "run-as-non-root (x5)",
+     "pdb-unhealthy-pod-eviction-policy (x2)"
+    ]
+   },
+   "trivy": {
+    "ran": true,
+    "failed": 122,
+    "by_severity": {
+     "CRITICAL": 0,
+     "HIGH": 17,
+     "MEDIUM": 29,
+     "LOW": 76
+    },
+    "top": [
+     "KSV-0118 Default security context configured (x10)",
+     "KSV-0020 Runs with UID <= 10000 (x9)",
+     "KSV-0021 Runs with GID <= 10000 (x9)",
+     "KSV-0125 Restrict container images to trusted registries (x9)",
+     "KSV-0011 CPU not limited (x8)"
+    ]
+   }
+  }
+ },
+ "n8n": {
+  "n8n-minoverride": {
+   "kubescape": {
+    "ran": true,
+    "failed_controls": 29,
+    "by_severity": {
+     "Critical": 0,
+     "High": 9,
+     "Medium": 13,
+     "Low": 7
+    },
+    "top": [
+     "C-0017 Immutable container filesystem (Low, 3 resources)",
+     "C-0030 Ingress and Egress blocked (Medium, 3 resources)",
+     "C-0034 Automatic mapping of service account (Medium, 3 resources)",
+     "C-0076 Label usage for resources (Low, 3 resources)",
+     "C-0190 Ensure that Service Account Tokens are only mounted where necessary (Medium, 3 resources)"
+    ],
+    "high_crit_ids": [
+     "C-0004",
+     "C-0009",
+     "C-0015",
+     "C-0050",
+     "C-0211",
+     "C-0237",
+     "C-0261",
+     "C-0270",
+     "C-0271"
+    ]
+   },
+   "checkov": {
+    "ran": true,
+    "failed": 34,
+    "passed": 249,
+    "severity": "not rated (Checkov severities need a Prisma Cloud API key)",
+    "top": [
+     "CKV2_K8S_6 Minimize the admission of pods which lack an associated NetworkPolicy (x3)",
+     "CKV_K8S_15 Image Pull Policy should be Always (x3)",
+     "CKV_K8S_22 Use read-only filesystem for containers where possible (x3)",
+     "CKV_K8S_38 Ensure that Service Account Tokens are only mounted where necessary (x3)",
+     "CKV_K8S_40 Containers should run as a high UID to avoid host conflict (x3)"
+    ]
+   },
+   "kubelinter": {
+    "ran": true,
+    "findings": 9,
+    "severity": "not rated (kube-linter has no severity field)",
+    "top": [
+     "no-read-only-root-fs (x3)",
+     "no-anti-affinity (x1)",
+     "pdb-min-available (x1)",
+     "pdb-unhealthy-pod-eviction-policy (x1)",
+     "run-as-non-root (x1)"
+    ]
+   },
+   "trivy": {
+    "ran": true,
+    "failed": 27,
+    "by_severity": {
+     "CRITICAL": 0,
+     "HIGH": 5,
+     "MEDIUM": 7,
+     "LOW": 15
+    },
+    "top": [
+     "KSV-0014 Root file system is not read-only (x3)",
+     "KSV-0020 Runs with UID <= 10000 (x3)",
+     "KSV-0021 Runs with GID <= 10000 (x3)",
+     "KSV-0118 Default security context configured (x2)",
+     "KSV-0125 Restrict container images to trusted registries (x2)"
+    ]
+   }
+  }
+ },
+ "qdrant": {
+  "qdrant": {
+   "kubescape": {
+    "ran": true,
+    "failed_controls": 22,
+    "by_severity": {
+     "Critical": 0,
+     "High": 6,
+     "Medium": 10,
+     "Low": 6
+    },
+    "top": [
+     "C-0013 Non-root containers (Medium, 2 resources)",
+     "C-0017 Immutable container filesystem (Low, 2 resources)",
+     "C-0030 Ingress and Egress blocked (Medium, 2 resources)",
+     "C-0034 Automatic mapping of service account (Medium, 2 resources)",
+     "C-0055 Linux hardening (Medium, 2 resources)"
+    ],
+    "high_crit_ids": [
+     "C-0004",
+     "C-0009",
+     "C-0050",
+     "C-0211",
+     "C-0270",
+     "C-0271"
+    ]
+   },
+   "checkov": {
+    "ran": true,
+    "failed": 38,
+    "passed": 146,
+    "severity": "not rated (Checkov severities need a Prisma Cloud API key)",
+    "top": [
+     "CKV_K8S_21 The default namespace should not be used (x7)",
+     "CKV2_K8S_6 Minimize the admission of pods which lack an associated NetworkPolicy (x2)",
+     "CKV_K8S_20 Containers should not run with allowPrivilegeEscalation (x2)",
+     "CKV_K8S_22 Use read-only filesystem for containers where possible (x2)",
+     "CKV_K8S_28 Minimize the admission of containers with the NET_RAW capability (x2)"
+    ]
+   },
+   "kubelinter": {
+    "ran": true,
+    "findings": 9,
+    "severity": "not rated (kube-linter has no severity field)",
+    "top": [
+     "no-read-only-root-fs (x2)",
+     "run-as-non-root (x2)",
+     "unset-cpu-requirements (x2)",
+     "unset-memory-requirements (x2)",
+     "latest-tag (x1)"
+    ]
+   },
+   "trivy": {
+    "ran": true,
+    "failed": 44,
+    "by_severity": {
+     "CRITICAL": 0,
+     "HIGH": 5,
+     "MEDIUM": 11,
+     "LOW": 28
+    },
+    "top": [
+     "KSV-0003 Default capabilities: some containers do not drop all (x3)",
+     "KSV-0004 Default capabilities: some containers do not drop any (x3)",
+     "KSV-0020 Runs with UID <= 10000 (x3)",
+     "KSV-0021 Runs with GID <= 10000 (x3)",
+     "KSV-0030 Runtime/Default Seccomp profile not set (x3)"
+    ]
+   }
+  }
+ },
+ "weaviate": {
+  "weaviate": {
+   "kubescape": {
+    "ran": true,
+    "failed_controls": 22,
+    "by_severity": {
+     "Critical": 0,
+     "High": 8,
+     "Medium": 10,
+     "Low": 4
+    },
+    "top": [
+     "C-0004 Resources memory limit and request (High, 1 resources)",
+     "C-0009 Resource limits (High, 1 resources)",
+     "C-0013 Non-root containers (Medium, 1 resources)",
+     "C-0016 Allow privilege escalation (Medium, 1 resources)",
+     "C-0017 Immutable container filesystem (Low, 1 resources)"
+    ],
+    "high_crit_ids": [
+     "C-0004",
+     "C-0009",
+     "C-0050",
+     "C-0057",
+     "C-0211",
+     "C-0237",
+     "C-0270",
+     "C-0271"
+    ]
+   },
+   "checkov": {
+    "ran": true,
+    "failed": 24,
+    "passed": 70,
+    "severity": "not rated (Checkov severities need a Prisma Cloud API key)",
+    "top": [
+     "CKV_K8S_21 The default namespace should not be used (x6)",
+     "CKV2_K8S_6 Minimize the admission of pods which lack an associated NetworkPolicy (x1)",
+     "CKV_K8S_10 CPU requests should be set (x1)",
+     "CKV_K8S_11 CPU limits should be set (x1)",
+     "CKV_K8S_12 Memory requests should be set (x1)"
+    ]
+   },
+   "kubelinter": {
+    "ran": true,
+    "findings": 11,
+    "severity": "not rated (kube-linter has no severity field)",
+    "top": [
+     "no-read-only-root-fs (x2)",
+     "run-as-non-root (x2)",
+     "unset-cpu-requirements (x2)",
+     "unset-memory-requirements (x2)",
+     "latest-tag (x1)"
+    ]
+   },
+   "trivy": {
+    "ran": true,
+    "failed": 36,
+    "by_severity": {
+     "CRITICAL": 0,
+     "HIGH": 5,
+     "MEDIUM": 9,
+     "LOW": 22
+    },
+    "top": [
+     "KSV-0001 Can elevate its own privileges (x2)",
+     "KSV-0003 Default capabilities: some containers do not drop all (x2)",
+     "KSV-0004 Default capabilities: some containers do not drop any (x2)",
+     "KSV-0011 CPU not limited (x2)",
+     "KSV-0012 Runs as root user (x2)"
+    ]
+   }
+  }
+ },
+ "milvus": {
+  "milvus": {
+   "kubescape": {
+    "ran": true,
+    "failed_controls": 38,
+    "by_severity": {
+     "Critical": 0,
+     "High": 11,
+     "Medium": 18,
+     "Low": 9
+    },
+    "top": [
+     "C-0004 Resources memory limit and request (High, 14 resources)",
+     "C-0009 Resource limits (High, 14 resources)",
+     "C-0017 Immutable container filesystem (Low, 14 resources)",
+     "C-0030 Ingress and Egress blocked (Medium, 14 resources)",
+     "C-0034 Automatic mapping of service account (Medium, 14 resources)"
+    ],
+    "high_crit_ids": [
+     "C-0004",
+     "C-0009",
+     "C-0012",
+     "C-0015",
+     "C-0050",
+     "C-0211",
+     "C-0237",
+     "C-0259",
+     "C-0261",
+     "C-0270",
+     "C-0271"
+    ]
+   },
+   "checkov": {
+    "ran": true,
+    "failed": 217,
+    "passed": 1051,
+    "severity": "not rated (Checkov severities need a Prisma Cloud API key)",
+    "top": [
+     "CKV_K8S_11 CPU limits should be set (x14)",
+     "CKV_K8S_13 Memory limits should be set (x14)",
+     "CKV_K8S_15 Image Pull Policy should be Always (x14)",
+     "CKV_K8S_22 Use read-only filesystem for containers where possible (x14)",
+     "CKV_K8S_28 Minimize the admission of containers with the NET_RAW capability (x14)"
+    ]
+   },
+   "kubelinter": {
+    "ran": true,
+    "findings": 84,
+    "severity": "not rated (kube-linter has no severity field)",
+    "top": [
+     "no-read-only-root-fs (x23)",
+     "unset-memory-requirements (x23)",
+     "run-as-non-root (x21)",
+     "unset-cpu-requirements (x9)",
+     "no-anti-affinity (x5)"
+    ]
+   },
+   "trivy": {
+    "ran": true,
+    "failed": 356,
+    "by_severity": {
+     "CRITICAL": 0,
+     "HIGH": 55,
+     "MEDIUM": 97,
+     "LOW": 204
+    },
+    "top": [
+     "KSV-0118 Default security context configured (x31)",
+     "KSV-0003 Default capabilities: some containers do not drop all (x23)",
+     "KSV-0004 Default capabilities: some containers do not drop any (x23)",
+     "KSV-0011 CPU not limited (x23)",
+     "KSV-0014 Root file system is not read-only (x23)"
+    ]
+   }
+  }
+ },
+ "k8s-mcp-server-containers": {
+  "k8s-mcp-server-minoverride": {
+   "kubescape": {
+    "ran": true,
+    "failed_controls": 11,
+    "by_severity": {
+     "Critical": 0,
+     "High": 3,
+     "Medium": 6,
+     "Low": 2
+    },
+    "top": [
+     "C-0013 Non-root containers (Medium, 1 resources)",
+     "C-0030 Ingress and Egress blocked (Medium, 1 resources)",
+     "C-0034 Automatic mapping of service account (Medium, 1 resources)",
+     "C-0075 Image pull policy on latest tag (Low, 1 resources)",
+     "C-0076 Label usage for resources (Low, 1 resources)"
+    ],
+    "high_crit_ids": [
+     "C-0211",
+     "C-0237",
+     "C-0263"
+    ]
+   },
+   "checkov": {
+    "ran": true,
+    "failed": 6,
+    "passed": 91,
+    "severity": "not rated (Checkov severities need a Prisma Cloud API key)",
+    "top": [
+     "CKV2_K8S_6 Minimize the admission of pods which lack an associated NetworkPolicy (x1)",
+     "CKV_K8S_14 Image Tag should be fixed - not latest or blank (x1)",
+     "CKV_K8S_15 Image Pull Policy should be Always (x1)",
+     "CKV_K8S_38 Ensure that Service Account Tokens are only mounted where necessary (x1)",
+     "CKV_K8S_40 Containers should run as a high UID to avoid host conflict (x1)"
+    ]
+   },
+   "kubelinter": {
+    "ran": true,
+    "findings": 1,
+    "severity": "not rated (kube-linter has no severity field)",
+    "top": [
+     "latest-tag (x1)"
+    ]
+   },
+   "trivy": {
+    "ran": true,
+    "failed": 4,
+    "by_severity": {
+     "CRITICAL": 0,
+     "HIGH": 0,
+     "MEDIUM": 2,
+     "LOW": 2
+    },
+    "top": [
+     "KSV-0013 Image tag \":latest\" used (x1)",
+     "KSV-0020 Runs with UID <= 10000 (x1)",
+     "KSV-0021 Runs with GID <= 10000 (x1)",
+     "KSV-0125 Restrict container images to trusted registries (x1)"
+    ]
+   }
+  }
+ },
+ "mcp-server-kubernetes-flux159": {
+  "flux159-mcp": {
+   "kubescape": {
+    "ran": true,
+    "failed_controls": 32,
+    "by_severity": {
+     "Critical": 0,
+     "High": 8,
+     "Medium": 16,
+     "Low": 8
+    },
+    "top": [
+     "C-0013 Non-root containers (Medium, 3 resources)",
+     "C-0018 Configured readiness probe (Low, 3 resources)",
+     "C-0030 Ingress and Egress blocked (Medium, 3 resources)",
+     "C-0034 Automatic mapping of service account (Medium, 3 resources)",
+     "C-0055 Linux hardening (Medium, 3 resources)"
+    ],
+    "high_crit_ids": [
+     "C-0004",
+     "C-0009",
+     "C-0015",
+     "C-0050",
+     "C-0211",
+     "C-0237",
+     "C-0270",
+     "C-0271"
+    ]
+   },
+   "checkov": {
+    "ran": true,
+    "failed": 45,
+    "passed": 236,
+    "severity": "not rated (Checkov severities need a Prisma Cloud API key)",
+    "top": [
+     "CKV_K8S_21 The default namespace should not be used (x5)",
+     "CKV2_K8S_6 Minimize the admission of pods which lack an associated NetworkPolicy (x3)",
+     "CKV_K8S_14 Image Tag should be fixed - not latest or blank (x3)",
+     "CKV_K8S_31 Ensure that the seccomp profile is set to docker/default or runtime/default (x3)",
+     "CKV_K8S_38 Ensure that Service Account Tokens are only mounted where necessary (x3)"
+    ]
+   },
+   "kubelinter": {
+    "ran": true,
+    "findings": 9,
+    "severity": "not rated (kube-linter has no severity field)",
+    "top": [
+     "latest-tag (x3)",
+     "unset-cpu-requirements (x2)",
+     "unset-memory-requirements (x2)",
+     "no-read-only-root-fs (x1)",
+     "run-as-non-root (x1)"
+    ]
+   },
+   "trivy": {
+    "ran": true,
+    "failed": 45,
+    "by_severity": {
+     "CRITICAL": 1,
+     "HIGH": 6,
+     "MEDIUM": 15,
+     "LOW": 23
+    },
+    "top": [
+     "KSV-0013 Image tag \":latest\" used (x3)",
+     "KSV-0020 Runs with UID <= 10000 (x3)",
+     "KSV-0021 Runs with GID <= 10000 (x3)",
+     "KSV-0030 Runtime/Default Seccomp profile not set (x3)",
+     "KSV-0048 Manage Kubernetes workloads and pods (x3)"
+    ]
+   }
+  }
+ }
+}

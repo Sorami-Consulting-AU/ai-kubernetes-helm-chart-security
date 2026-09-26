@@ -1,0 +1,102 @@
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:30:29Z
+# Ray full probe log. Charts kuberay/kuberay-operator 1.7.1 and kuberay/ray-cluster 1.7.1 (Ray 2.52.0), default values. Cluster <kind-context> (kind v0.33.0, node v1.37.0, arm64). Probe pod probe/curl (curlimages/curl:8.10.1). No credentials sent. Images pre-pulled inside the kind node with crictl.
+install: helm --kubeconfig <kubeconfig> --kube-context <kind-context> install op <charts>/repo-kuberay-operator/kuberay-operator -n kuberay --wait --timeout 5m
+install: helm --kubeconfig <kubeconfig> --kube-context <kind-context> install rc <charts>/repo-ray-cluster/ray-cluster -n kuberay
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:31:42Z
+curl: kubectl --kubeconfig <kubeconfig> --context <kind-context> -n probe exec curl -- curl -sS -i -m 15 -X GET -w \\n__STATUS__%\{http_code\} http://rc-kuberay-head-svc.kuberay.svc:8265/api/version 
+method: GET
+url: http://rc-kuberay-head-svc.kuberay.svc:8265/api/version
+request_body: (none)
+http_status: 200
+response_headers:
+  HTTP/1.1 200 OK
+  Content-Type: application/json; charset=utf-8
+  Content-Length: 155
+  Date: Fri, 25 Sep 2026 00:31:42 GMT
+  Server: Python/3.10 aiohttp/3.11.16
+response_body:
+{"version": "4", "ray_version": "2.52.0", "ray_commit": "9527a555280fb9837ce73dabf01559c20656a456", "session_name": "session_2026-09-24_17-30-52_394798_1"}
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:31:42Z
+curl: kubectl --kubeconfig <kubeconfig> --context <kind-context> -n probe exec curl -- curl -sS -i -m 15 -X GET -w \\n__STATUS__%\{http_code\} http://rc-kuberay-head-svc.kuberay.svc:8265/nodes\?view=summary 
+method: GET
+url: http://rc-kuberay-head-svc.kuberay.svc:8265/nodes?view=summary
+request_body: (none)
+http_status: 200
+response_headers:
+  HTTP/1.1 200 OK
+  Content-Type: application/json; charset=utf-8
+  Content-Length: 17004
+  Date: Fri, 25 Sep 2026 00:31:42 GMT
+  Server: Python/3.10 aiohttp/3.11.16
+response_body (trimmed: body was 17004 bytes, first 2048 shown):
+{"result": true, "msg": "Node summary fetched.", "data": {"summary": [{"now": 1790296301.280795, "hostname": "rc-kuberay-head-4s9d5", "ip": "<pod-ip>", "cpu": 13.4, "cpus": [1, 10], "mem": [5368709120, 3772207104, 29.7, 1596502016], "shm": 11427840, "raylet": {"storeStats": {"objectStoreBytesAvail": "1198040678"}, "coreWorkersStats": [], "objectStoreUsedMemory": 0, "objectStoreAvailableMemory": 1198040678, "nodeId": "d34e99b3b2fd4ca841e01e53f377aa9000978214789bb03e71c04707", "nodeManagerAddress": "<pod-ip>", "rayletSocketName": "/tmp/ray/session_2026-09-24_17-30-52_394798_1/sockets/raylet", "objectStoreSocketName": "/tmp/ray/session_2026-09-24_17-30-52_394798_1/sockets/plasma_store", "nodeManagerPort": 33267, "objectManagerPort": 45899, "nodeManagerHostname": "rc-kuberay-head-4s9d5", "metricsExportPort": 8080, "resourcesTotal": {"CPU": 1.0, "memory": 5368709120.0, "objectStoreMemory": 1198040678.0, "node:<pod-ip>": 1.0, "node:InternalHead": 1.0}, "nodeName": "<pod-ip>", "instanceId": "rc-kuberay-head-4s9d5", "nodeTypeName": "headgroup", "startTimeMs": "1790296264333", "isHeadNode": true, "labels": {"ray.io/node-group": "headgroup", "ray.io/node-id": "d34e99b3b2fd4ca841e01e53f377aa9000978214789bb03e71c04707"}, "runtimeEnvAgentPort": 64032, "stateSnapshot": {"state": "ACTIVE", "idleDurationMs": "0", "nodeActivity": []}, "state": "ALIVE", "instanceTypeName": "", "endTimeMs": "0", "stateMessage": null}, "agent": {"pid": 574, "createTime": 1790296263.65, "cpuPercent": 1.6, "cpuTimes": {"user": 0.98, "system": 0.35, "childrenUser": 0.0, "childrenSystem": 0.0}, "cmdline": ["/home/ray/anaconda3/bin/python3.10", "-u", "/home/ray/anaconda3/lib/python3.10/site-packages/ray/dashboard/agent.py", "--node-ip-address=<pod-ip>", "--metrics-export-port=8080", "--grpc-port=59962", "--listen-port=52365", "--node-manager-port=33267", "--object-store-name=/tmp/ray/session_2026-09-24_17-30-52_394798_1/sockets/plasma_store", "--raylet-name=/tmp/ray/session_2026-09-24_17-30-52_394798_1/sockets/raylet", "--temp-dir=/tmp/ray
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:31:42Z
+curl: kubectl --kubeconfig <kubeconfig> --context <kind-context> -n probe exec curl -- curl -sS -i -m 15 -X GET -w \\n__STATUS__%\{http_code\} http://rc-kuberay-head-svc.kuberay.svc:8265/api/jobs/ 
+method: GET
+url: http://rc-kuberay-head-svc.kuberay.svc:8265/api/jobs/
+request_body: (none)
+http_status: 200
+response_headers:
+  HTTP/1.1 200 OK
+  Content-Type: application/json; charset=utf-8
+  Content-Length: 2
+  Date: Fri, 25 Sep 2026 00:31:42 GMT
+  Server: Python/3.10 aiohttp/3.11.16
+response_body:
+[]
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:31:42Z
+curl: kubectl --kubeconfig <kubeconfig> --context <kind-context> -n probe exec curl -- curl -sS -i -m 15 -X POST -w \\n__STATUS__%\{http_code\} -H Content-Type:\ application/json --data \{\"entrypoint\":\"echo\ sbd-probe-\$\(id\ -u\)\"\,\"submission_id\":\"sbd-probe-2\"\} http://rc-kuberay-head-svc.kuberay.svc:8265/api/jobs/ 
+method: POST
+url: http://rc-kuberay-head-svc.kuberay.svc:8265/api/jobs/
+request_body: {"entrypoint":"echo sbd-probe-$(id -u)","submission_id":"sbd-probe-2"}
+http_status: 200
+response_headers:
+  HTTP/1.1 200 OK
+  Content-Type: application/json; charset=utf-8
+  Content-Length: 57
+  Date: Fri, 25 Sep 2026 00:31:43 GMT
+  Server: Python/3.10 aiohttp/3.11.16
+response_body:
+{"job_id": "sbd-probe-2", "submission_id": "sbd-probe-2"}
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:31:55Z
+curl: kubectl --kubeconfig <kubeconfig> --context <kind-context> -n probe exec curl -- curl -sS -i -m 15 -X GET -w \\n__STATUS__%\{http_code\} http://rc-kuberay-head-svc.kuberay.svc:8265/api/jobs/sbd-probe-2 
+method: GET
+url: http://rc-kuberay-head-svc.kuberay.svc:8265/api/jobs/sbd-probe-2
+request_body: (none)
+http_status: 200
+response_headers:
+  E0925 10:31:55.949895   74449 websocket.go:296] Unknown stream id 1, discarding message
+  HTTP/1.1 200 OK
+  Content-Type: application/json; charset=utf-8
+  Content-Length: 469
+  Date: Fri, 25 Sep 2026 00:31:55 GMT
+  Server: Python/3.10 aiohttp/3.11.16
+response_body:
+{"type": "SUBMISSION", "job_id": null, "submission_id": "sbd-probe-2", "driver_info": null, "status": "SUCCEEDED", "entrypoint": "echo sbd-probe-$(id -u)", "message": "Job finished successfully.", "error_type": null, "start_time": 1790296303363, "end_time": 1790296304615, "metadata": null, "runtime_env": null, "driver_agent_http_address": "http://<pod-ip>:52365", "driver_node_id": "d34e99b3b2fd4ca841e01e53f377aa9000978214789bb03e71c04707", "driver_exit_code": 0}
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:31:55Z
+curl: kubectl --kubeconfig <kubeconfig> --context <kind-context> -n probe exec curl -- curl -sS -i -m 15 -X GET -w \\n__STATUS__%\{http_code\} http://rc-kuberay-head-svc.kuberay.svc:8265/api/jobs/sbd-probe-2/logs 
+method: GET
+url: http://rc-kuberay-head-svc.kuberay.svc:8265/api/jobs/sbd-probe-2/logs
+request_body: (none)
+http_status: 200
+response_headers:
+  HTTP/1.1 200 OK
+  Content-Type: application/json; charset=utf-8
+  Content-Length: 173
+  Date: Fri, 25 Sep 2026 00:31:56 GMT
+  Server: Python/3.10 aiohttp/3.11.16
+response_body:
+{"logs": "2026-09-24 17:31:43,366\tINFO job_manager.py:568 -- Runtime env is setting up.\nRunning entrypoint for job sbd-probe-2: echo sbd-probe-$(id -u)\nsbd-probe-1000\n"}
+----------------------------------------------------------------
+timestamp_utc: 2026-09-25T00:31:56Z
+runtime user (head): uid=1000(ray) gid=100(users) groups=100(users),27(sudo)
+sudo -n id (head): uid=0(root) gid=0(root) groups=0(root)
+head SA: default; token mounted: ca.crt namespace token 
+default SA get secrets: no

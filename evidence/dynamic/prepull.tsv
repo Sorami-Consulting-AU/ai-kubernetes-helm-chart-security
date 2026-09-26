@@ -1,0 +1,23 @@
+lmcache/lmstack-router:latest	FAIL	3s
+kserve/kserve-controller:v0.20.0	ok	15s
+quay.io/brancz/kube-rbac-proxy:v0.18.0	ok	21s
+quay.io/kuberay/operator:v1.7.1	ok	19s
+docker.n8n.io/n8nio/n8n:2.40.5	ok	76s
+busybox:1.36	ok	5s
+ghcr.io/open-webui/open-webui:0.11.4	ok	487s
+redis:7.4.2-alpine3.21	ok	9s
+ollama/ollama:0.33.2	FAIL	272s
+ghcr.io/open-webui/pipelines:main	FAIL	147s
+busybox	FAIL	2s
+docker.io/postgres:18	FAIL	1s
+docker.langfuse.com/langfuse/langfuse:4.38.0	FAIL	4s
+docker.langfuse.com/langfuse/langfuse-worker:4.38.0	FAIL	3s
+docker.io/valkey/valkey:8.0	FAIL	1s
+chrislusf/seaweedfs:4.23	FAIL	2s
+rayproject/ray:2.52.0	ok	1s
+milvusdb/milvus:v3.0.1	FAIL	2s
+docker.io/milvusdb/etcd:3.5.25-r1	FAIL	1s
+quay.io/minio/minio:RELEASE.2024-12-18T13-15-44Z	FAIL	1s
+apachepulsar/pulsar:3.0.7	FAIL	2s
+quay.io/go-skynet/local-ai:latest	FAIL	1s
+DONE

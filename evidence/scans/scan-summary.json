@@ -1,0 +1,161 @@
+{
+ "aibrix": {
+  "checkov_failed": null,
+  "checkov_passed": null,
+  "checkov_resources": null,
+  "kubelinter_findings": 20,
+  "kubescape_high_crit_controls": 11,
+  "kubescape_score": 79.4,
+  "trivy_high_crit": 22,
+  "trivy_total_fail": 104
+ },
+ "flux159-mcp": {
+  "checkov_failed": 45,
+  "checkov_passed": 236,
+  "checkov_resources": 8,
+  "kubelinter_findings": 9,
+  "kubescape_high_crit_controls": 8,
+  "kubescape_score": 72.1,
+  "trivy_high_crit": 7,
+  "trivy_total_fail": 45
+ },
+ "k8s-mcp-server-minoverride": {
+  "checkov_failed": 6,
+  "checkov_passed": 91,
+  "checkov_resources": 6,
+  "kubelinter_findings": 1,
+  "kubescape_high_crit_controls": 3,
+  "kubescape_score": 85.4,
+  "trivy_high_crit": 0,
+  "trivy_total_fail": 4
+ },
+ "kserve": {
+  "checkov_failed": 8,
+  "checkov_passed": 121,
+  "checkov_resources": 23,
+  "kubelinter_findings": 3,
+  "kubescape_high_crit_controls": 6,
+  "kubescape_score": 80.4,
+  "trivy_high_crit": 5,
+  "trivy_total_fail": 15
+ },
+ "kuberay-operator": {
+  "checkov_failed": 6,
+  "checkov_passed": 136,
+  "checkov_resources": 14,
+  "kubelinter_findings": 1,
+  "kubescape_high_crit_controls": 6,
+  "kubescape_score": 79.2,
+  "trivy_high_crit": 5,
+  "trivy_total_fail": 13
+ },
+ "langfuse": {
+  "checkov_failed": 106,
+  "checkov_passed": 542,
+  "checkov_resources": 38,
+  "kubelinter_findings": 29,
+  "kubescape_high_crit_controls": 10,
+  "kubescape_score": 75.7,
+  "trivy_high_crit": 17,
+  "trivy_total_fail": 122
+ },
+ "litellm": {
+  "checkov_failed": 82,
+  "checkov_passed": 368,
+  "checkov_resources": 17,
+  "kubelinter_findings": 21,
+  "kubescape_high_crit_controls": 7,
+  "kubescape_score": 77.3,
+  "trivy_high_crit": 13,
+  "trivy_total_fail": 81
+ },
+ "localai": {
+  "checkov_failed": 18,
+  "checkov_passed": 70,
+  "checkov_resources": 5,
+  "kubelinter_findings": 5,
+  "kubescape_high_crit_controls": 7,
+  "kubescape_score": 73.7,
+  "trivy_high_crit": 3,
+  "trivy_total_fail": 18
+ },
+ "milvus": {
+  "checkov_failed": 217,
+  "checkov_passed": 1051,
+  "checkov_resources": 56,
+  "kubelinter_findings": 84,
+  "kubescape_high_crit_controls": 11,
+  "kubescape_score": 73.8,
+  "trivy_high_crit": 55,
+  "trivy_total_fail": 356
+ },
+ "n8n-minoverride": {
+  "checkov_failed": 34,
+  "checkov_passed": 249,
+  "checkov_resources": 13,
+  "kubelinter_findings": 9,
+  "kubescape_high_crit_controls": 9,
+  "kubescape_score": 78.4,
+  "trivy_high_crit": 5,
+  "trivy_total_fail": 27
+ },
+ "ollama": {
+  "checkov_failed": 34,
+  "checkov_passed": 147,
+  "checkov_resources": 5,
+  "kubelinter_findings": 9,
+  "kubescape_high_crit_controls": 7,
+  "kubescape_score": 76.4,
+  "trivy_high_crit": 6,
+  "trivy_total_fail": 34
+ },
+ "open-webui": {
+  "checkov_failed": 88,
+  "checkov_passed": 367,
+  "checkov_resources": 18,
+  "kubelinter_findings": 25,
+  "kubescape_high_crit_controls": 7,
+  "kubescape_score": 76.6,
+  "trivy_high_crit": 17,
+  "trivy_total_fail": 100
+ },
+ "qdrant": {
+  "checkov_failed": 38,
+  "checkov_passed": 146,
+  "checkov_resources": 8,
+  "kubelinter_findings": 9,
+  "kubescape_high_crit_controls": 6,
+  "kubescape_score": 80.4,
+  "trivy_high_crit": 5,
+  "trivy_total_fail": 44
+ },
+ "ray-cluster": {
+  "checkov_failed": null,
+  "checkov_passed": null,
+  "checkov_resources": null,
+  "kubelinter_findings": 0,
+  "kubescape_score": null,
+  "trivy_high_crit": 0,
+  "trivy_total_fail": 0
+ },
+ "vllm-stack": {
+  "checkov_failed": 14,
+  "checkov_passed": 91,
+  "checkov_resources": 9,
+  "kubelinter_findings": 4,
+  "kubescape_high_crit_controls": 6,
+  "kubescape_score": 79.3,
+  "trivy_high_crit": 3,
+  "trivy_total_fail": 16
+ },
+ "weaviate": {
+  "checkov_failed": 24,
+  "checkov_passed": 70,
+  "checkov_resources": 7,
+  "kubelinter_findings": 11,
+  "kubescape_high_crit_controls": 8,
+  "kubescape_score": 76.6,
+  "trivy_high_crit": 5,
+  "trivy_total_fail": 36
+ }
+}

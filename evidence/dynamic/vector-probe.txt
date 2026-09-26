@@ -1,0 +1,27 @@
+# qdrant
+GET http://rel-qdrant.qdrant.svc:6333/collections            200 {"result":{"collections":[]},"status":"ok","time":0.0000295}
+200 {"result":{"id":"ae4992b3-0c16-45cb-9770-b1880f597869","app":{"name":"qdrant","version":"1.19.1","startup":"2026-09-24T01:56:15.570Z"},"collections":{"number_of_collections":0},"cluster":{"enabled":tr
+GET http://rel-qdrant.qdrant.svc:6333/cluster                200 {"result":{"status":"enabled","peer_id":6790291520762571,"peers":{"6790291520762571":{"uri":"http://rel-qdrant-0.rel-qdrant-headless:6335/"}},"raft_info":{"term":1,"commit":3,"pending_operations":0,"l
+GET http://rel-qdrant.qdrant.svc:6333/dashboard              200 <!DOCTYPE html> <html lang="en">  <head>   <meta charset="utf-8" />   <link rel="icon" href="/dashboard/favicon.ico" />   <meta name="viewport" content="width=device-width, initial-scale=1" />   <meta
+PUT http://rel-qdrant.qdrant.svc:6333/collections/sbd_probe  400 {"status":{"error":"Format error in JSON body: key must be a string at line 1 column 2"},"time":0.0}
+GET http://rel-qdrant.qdrant.svc:6333/collections            200 {"result":{"collections":[]},"status":"ok","time":6.584e-6}
+DELETE http://rel-qdrant.qdrant.svc:6333/collections/sbd_probe 200 {"result":false,"status":"ok","time":0.018425459}
+# weaviate
+GET http://weaviate.weaviate.svc/v1/meta                     200 {"grpcMaxMessageSize":104858000,"hostname":"http://[::]:8080","modules":{"generative-anthropic":{"documentationHref":"https://docs.anthropic.com/en/api/getting-started","name":"Generative Search - Ant
+GET http://weaviate.weaviate.svc/v1/schema                   200 {"classes":[]} 
+GET http://weaviate.weaviate.svc/v1/nodes                    200 {"nodes":[{"batchStats":{"queueLength":0,"ratePerSecond":0},"gitHash":"5bf9fbd","name":"weaviate-0","operationalMode":"ReadWrite","shards":null,"status":"HEALTHY","version":"1.38.2"}]} 
+POST http://weaviate.weaviate.svc/v1/schema                  400 {"code":400,"message":"parsing objectClass body from \"\" failed, because invalid character 'c' looking for beginning of object key string"}
+GET http://weaviate.weaviate.svc/v1/schema                   200 {"classes":[]} 
+DELETE http://weaviate.weaviate.svc/v1/schema/SbdProbe       200 
+# weaviate via NodePort on node IP (LoadBalancer also allocates NodePort)
+GET http://<node-ip>:32523/v1/meta                          200 {"grpcMaxMessageSize":104858000,"hostname":"http://[::]:8080","modules":{"generative-anthropic":{"documentationHref":"https://docs.anthropic.com/en/api/getting-started","name":"Generative Search - Ant
+# qdrant write test (create then delete own empty collection)
+{"result":true,"status":"ok","time":0.062313583} HTTP 200
+{"result":{"collections":[{"name":"sbd_probe"}]},"status":"ok","time":4.875e-6} HTTP 200
+{"result":true,"status":"ok","time":0.017105125} HTTP 200
+# weaviate write test (create then delete own empty class)
+{"class":"SbdProbe","invertedIndexConfig":{"bm25":{"b":0.75,"k1":1.2},"cleanupIntervalSeconds":60,"stopwords":{"additions":null,"preset":"en","removals":null},"usingBlockMaxWAND":true},"multiTenancyConfig":{"autoTenantActivation":false,"autoTenantCreation":fal
+{"classes":[{"class":"SbdProbe","invertedIndexConfig":{"bm25":{"b":0.75,"k1":1.2},"cleanupIntervalSeconds":60,"stopwords":{"additions":null,"preset":"en","removals":null},"usingBlockMaxWAND":true},"multiTenancyConfig":{"autoTenantActivation":false,"autoTenantC
+ HTTP 200
+{"classes":[]}
+ HTTP 200

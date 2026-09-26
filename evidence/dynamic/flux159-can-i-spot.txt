@@ -1,0 +1,9 @@
+get secrets -A: yes
+create pods/exec -A: yes
+delete deployments -A: yes
+create clusterrolebindings: Warning: resource 'clusterrolebindings' is not namespace scoped in group 'rbac.authorization.k8s.io'
+
+no
+delete nodes: Warning: resource 'nodes' is not namespace scoped
+
+no

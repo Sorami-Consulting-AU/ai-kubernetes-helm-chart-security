@@ -1,0 +1,13 @@
+# n8n http://rel-n8n-main.n8n.svc:5678
+command terminated with exit code 7
+ HTTP 000
+command terminated with exit code 7
+ HTTP 000
+command terminated with exit code 7
+ HTTP 000
+command terminated with exit code 7
+ HTTP 000
+command terminated with exit code 7
+ HTTP 000
+uid: error: unable to upgrade connection: container not found ("n8n-main")
+n8n: pods CreateContainerConfigError: secret n8n-db-password not found (chart expects external Postgres + pre-created secret). Not started within 10 min. No probe possible.
